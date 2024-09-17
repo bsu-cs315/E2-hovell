@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cabhv646fd1"]
+[gd_scene load_steps=4 format=3 uid="uid://cabhv646fd1"]
 
 [ext_resource type="PackedScene" uid="uid://djfin4f42kgbi" path="res://scenes/ice_cream.tscn" id="1_3q4dh"]
 [ext_resource type="PackedScene" uid="uid://cddo3dulwurht" path="res://scenes/floor.tscn" id="2_2h426"]
+[ext_resource type="PackedScene" uid="uid://3nmjqsdqle3w" path="res://scenes/cone.tscn" id="3_hk6kx"]
 
 [node name="Level" type="Node2D"]
 
@@ -9,4 +10,10 @@
 position = Vector2(286, 967)
 
 [node name="Floor" parent="." instance=ExtResource("2_2h426")]
-position = Vector2(6, 1188)
+position = Vector2(8, 1265)
+
+[node name="Cone" parent="." instance=ExtResource("3_hk6kx")]
+position = Vector2(115, 1027)
+
+[node name="Cone2" parent="." instance=ExtResource("3_hk6kx")]
+position = Vector2(500, 827)
