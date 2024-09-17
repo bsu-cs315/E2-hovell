@@ -1,15 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://3nmjqsdqle3w"]
+[gd_scene load_steps=2 format=3 uid="uid://3nmjqsdqle3w"]
 
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="1_86qtt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebhqg"]
-size = Vector2(93, 89)
 
 [node name="Cone" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_86qtt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_ebhqg")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-51, -46, 52, -46, 4, 46, -4, 46)
