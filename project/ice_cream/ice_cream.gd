@@ -1,3 +1,4 @@
+class_name IceCream
 extends CharacterBody2D
 
 const _SPEED : float = 300.0
@@ -21,3 +22,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, _SPEED)
 
 	move_and_slide()
+	
+	

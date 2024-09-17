@@ -8,7 +8,29 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_eo0e1")
 
+[node name="Lose" type="Label" parent="."]
+visible = false
+visibility_layer = 2
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -34.5
+offset_right = 110.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "You Lost!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="IceCream" parent="." instance=ExtResource("1_cmtxw")]
+z_index = 5
 position = Vector2(384, -73)
 
 [node name="Floor" parent="." instance=ExtResource("2_eogk2")]
@@ -22,4 +44,5 @@ script = ExtResource("4_q8g7h")
 wait_time = 10.0
 autostart = true
 
+[connection signal="game_finished" from="." to="MainCamera" method="_on_level_game_finished"]
 [connection signal="timeout" from="ConeSpawnTimer" to="." method="_on_cone_spawn_timer_timeout"]
