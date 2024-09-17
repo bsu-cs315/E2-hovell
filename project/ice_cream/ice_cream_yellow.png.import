@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clixrm7s3fbe6"
-path="res://.godot/imported/ice_cream_yellow.png-2d48b32ed4f4d961554acf818745b861.ctex"
+path="res://.godot/imported/ice_cream_yellow.png-755f587751a84b577320762d720aecde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/ice_cream_yellow.png"
-dest_files=["res://.godot/imported/ice_cream_yellow.png-2d48b32ed4f4d961554acf818745b861.ctex"]
+source_file="res://ice_cream/ice_cream_yellow.png"
+dest_files=["res://.godot/imported/ice_cream_yellow.png-755f587751a84b577320762d720aecde.ctex"]
 
 [params]
 

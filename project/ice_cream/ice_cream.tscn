@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://djfin4f42kgbi"]
 
-[ext_resource type="Script" path="res://scripts/ice_cream.gd" id="1_3hl0b"]
-[ext_resource type="Texture2D" uid="uid://clixrm7s3fbe6" path="res://graphics/ice_cream_yellow.png" id="2_68xaq"]
+[ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
+[ext_resource type="Texture2D" uid="uid://clixrm7s3fbe6" path="res://ice_cream/ice_cream_yellow.png" id="2_68xaq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wylsa"]
 radius = 49.0
