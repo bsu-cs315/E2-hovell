@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cabhv646fd1"]
+
+[ext_resource type="PackedScene" uid="uid://djfin4f42kgbi" path="res://scenes/ice_cream.tscn" id="1_3q4dh"]
+[ext_resource type="PackedScene" uid="uid://cddo3dulwurht" path="res://scenes/floor.tscn" id="2_2h426"]
+
+[node name="Level" type="Node2D"]
+
+[node name="IceCream" parent="." instance=ExtResource("1_3q4dh")]
+position = Vector2(286, 967)
+
+[node name="Floor" parent="." instance=ExtResource("2_2h426")]
+position = Vector2(6, 1188)
