@@ -11,12 +11,12 @@ var _spawn_side_options : Array = [0.0, 0.0]
 
 var _min_spawn_timer := 1.5
 var _max_spawn_timer := 2.0
-var next_cone_secs : float
+var _next_cone_secs : float
 
 @onready var _camera_object : Camera2D = $MainCamera
 @onready var _cone_timer_object : Timer = $ConeSpawnTimer
 @onready var _ice_cream_object : IceCream = $IceCream
-@onready var _lose_label : Label = $Lose
+@onready var _end_label : Label = $GameEndLabel
 
 func _ready() -> void:
 	_last_spawn_x = randf_range(50, 650)
@@ -26,9 +26,11 @@ func _ready() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if _ice_cream_object.position.y > _camera_object.position.y + 700:
-		_lose_label.position = _camera_object.position
-		_lose_label.show()
+		_end_label.position = _camera_object.position
+		_end_label.text = "You Lose!"
+		_end_label.show()
 		game_finished.emit()
+		_cone_timer_object.stop()
 
 
 func _spawn_cone(_ydistance) -> void:
@@ -76,21 +78,27 @@ func _spawn_cone(_ydistance) -> void:
 	_spawn.global_position = _spawn_pos
 	
 	
-	
-
 func _on_cone_spawn_timer_timeout() -> void:
 	_spawn_cone(_camera_object.position.y - 1000)
 	
-	next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = next_cone_secs
+	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
+	_cone_timer_object.wait_time = _next_cone_secs
 	_cone_timer_object.start() 
 
 
 func _on_start_timer_timeout() -> void:
 	_spawn_cone(_camera_object.position.y - 1000)
 	
-	next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = next_cone_secs
+	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
+	_cone_timer_object.wait_time = _next_cone_secs
 	_cone_timer_object.start() 
 	
 	_camera_object.can_move = true
+
+
+func _on_win_timer_timeout() -> void:
+	_end_label.position = _camera_object.position
+	_end_label.text = "You Win!"
+	_end_label.show()
+	game_finished.emit()
+	_cone_timer_object.stop()
