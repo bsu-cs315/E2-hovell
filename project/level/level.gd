@@ -89,21 +89,20 @@ func _spawn_cone(_ydistance) -> void:
 	
 func _on_cone_spawn_timer_timeout() -> void:
 	_spawn_cone(_camera_object.position.y + _yspawn)
-	
-	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = _next_cone_secs
-	_cone_timer_object.start() 
+	_restart_cone_timer()
 
 
 func _on_start_timer_timeout() -> void:
 	_spawn_cone(_camera_object.position.y + _yspawn)
-	
-	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = _next_cone_secs
-	_cone_timer_object.start() 
-	
+	_restart_cone_timer()
 	_camera_object.can_move = true
 
 
 func _on_win_timer_timeout() -> void:
 	_game_finished(true)
+	
+	
+func _restart_cone_timer() -> void:
+	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
+	_cone_timer_object.wait_time = _next_cone_secs
+	_cone_timer_object.start() 
