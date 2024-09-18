@@ -13,32 +13,39 @@ var _min_spawn_timer := 1.5
 var _max_spawn_timer := 2.0
 var _next_cone_secs : float
 
+var _xmax := 650
+var _xmin := 50
+var _boundary_max := 280
+var _boundary_min := 120
+
 @onready var _camera_object : Camera2D = $MainCamera
 @onready var _cone_timer_object : Timer = $ConeSpawnTimer
 @onready var _ice_cream_object : IceCream = $IceCream
-@onready var _end_label : Label = $GameEndLabel
+@onready var _hud_object : Control = $Hud
+@onready var _win_timer_object : Timer = $WinTimer
 
 func _ready() -> void:
-	_last_spawn_x = randf_range(50, 650)
+	_last_spawn_x = randf_range(_xmin, _xmax)
+	var _starting_distance_between := 300
+	var _startingy := -100
 	for i in 5:
-		_spawn_cone((i * 300) - 100)
+		_spawn_cone((i * _starting_distance_between)  + _startingy)
 	
 	
 func _physics_process(_delta: float) -> void:
+	_calculate_time_remaining()
 	if _ice_cream_object.position.y > _camera_object.position.y + 700:
-		_end_label.position = _camera_object.position
-		_end_label.text = "You Lose!"
-		_end_label.show()
+		_hud_object.update_end_label("You lose!", _camera_object.position)
 		game_finished.emit()
 		_cone_timer_object.stop()
+		
+func _calculate_time_remaining() -> void:
+	var _time_left_percent : float = 100 - ((_win_timer_object.time_left / _win_timer_object.wait_time) * 100)
+	var _new_position := Vector2(_camera_object.position.x - 350, _camera_object.position.y - 630)
+	_hud_object.update_win_bar(_time_left_percent, _new_position)
 
 
 func _spawn_cone(_ydistance) -> void:
-	var _xmax := 650
-	var _xmin := 50
-	var _boundary_max := 290
-	var _boundary_min := 120
-	
 	if _last_spawn_x > 550:
 		_spawn_side = 0
 		_spawn_side_options[0] = max (
@@ -97,8 +104,6 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_win_timer_timeout() -> void:
-	_end_label.position = _camera_object.position
-	_end_label.text = "You Win!"
-	_end_label.show()
+	_hud_object.update_end_label("You Win!", _camera_object.position)
 	game_finished.emit()
 	_cone_timer_object.stop()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cabhv646fd1"]
+[gd_scene load_steps=6 format=3 uid="uid://cabhv646fd1"]
 
 [ext_resource type="PackedScene" uid="uid://djfin4f42kgbi" path="res://ice_cream/ice_cream.tscn" id="1_cmtxw"]
 [ext_resource type="Script" path="res://level/level.gd" id="1_eo0e1"]
 [ext_resource type="PackedScene" uid="uid://cddo3dulwurht" path="res://floor/floor.tscn" id="2_eogk2"]
 [ext_resource type="Script" path="res://level/main_camera.gd" id="4_q8g7h"]
+[ext_resource type="PackedScene" uid="uid://i525unvf7751" path="res://level/hud.tscn" id="5_txbpq"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_eo0e1")
@@ -32,27 +33,7 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="GameEndLabel" type="Label" parent="."]
-visible = false
-visibility_layer = 2
-z_index = 10
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -34.5
-offset_right = 110.0
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(110, 34.5)
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
-text = "You Lost!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Hud" parent="." instance=ExtResource("5_txbpq")]
 
 [connection signal="game_finished" from="." to="MainCamera" method="_on_level_game_finished"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
