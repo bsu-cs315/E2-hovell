@@ -35,7 +35,6 @@ autostart = true
 
 [node name="Hud" parent="." instance=ExtResource("5_txbpq")]
 
-[connection signal="game_finished" from="." to="MainCamera" method="_on_level_game_finished"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="ConeSpawnTimer" to="." method="_on_cone_spawn_timer_timeout"]
 [connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
