@@ -9,6 +9,10 @@ var _spawn_pos : Vector2 = Vector2.ZERO
 var _spawn_side : int
 var _spawn_side_options : Array = [0.0, 0.0]
 
+var _min_spawn_timer := 1.5
+var _max_spawn_timer := 2.0
+var next_cone_secs : float
+
 @onready var _camera_object : Camera2D = $MainCamera
 @onready var _cone_timer_object : Timer = $ConeSpawnTimer
 @onready var _ice_cream_object : IceCream = $IceCream
@@ -16,7 +20,8 @@ var _spawn_side_options : Array = [0.0, 0.0]
 
 func _ready() -> void:
 	_last_spawn_x = randf_range(50, 650)
-	_spawn_cone()
+	for i in 5:
+		_spawn_cone((i * 300) - 100)
 	
 	
 func _physics_process(_delta: float) -> void:
@@ -26,14 +31,11 @@ func _physics_process(_delta: float) -> void:
 		game_finished.emit()
 
 
-func _spawn_cone() -> void:
+func _spawn_cone(_ydistance) -> void:
 	var _xmax := 650
 	var _xmin := 50
 	var _boundary_max := 290
 	var _boundary_min := 120
-	var _ydistance := 800
-	var _min_spawn_timer := 1.5
-	var _max_spawn_timer := 2.0
 	
 	if _last_spawn_x > 550:
 		_spawn_side = 0
@@ -66,17 +68,29 @@ func _spawn_cone() -> void:
 			)
 		
 	
-	_spawn_pos = Vector2(_spawn_side_options[_spawn_side], _camera_object.position.y - _ydistance)
+	_spawn_pos = Vector2(_spawn_side_options[_spawn_side], _ydistance)
 	_last_spawn_x = _spawn_pos.x
 	
 	var _spawn : StaticBody2D = _cone_regular.instantiate()
 	add_child(_spawn)
 	_spawn.global_position = _spawn_pos
 	
-	var next_cone_secs : float = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = next_cone_secs
-	_cone_timer_object.start() 
+	
 	
 
 func _on_cone_spawn_timer_timeout() -> void:
-	_spawn_cone()
+	_spawn_cone(_camera_object.position.y - 1000)
+	
+	next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
+	_cone_timer_object.wait_time = next_cone_secs
+	_cone_timer_object.start() 
+
+
+func _on_start_timer_timeout() -> void:
+	_spawn_cone(_camera_object.position.y - 1000)
+	
+	next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
+	_cone_timer_object.wait_time = next_cone_secs
+	_cone_timer_object.start() 
+	
+	_camera_object.can_move = true
