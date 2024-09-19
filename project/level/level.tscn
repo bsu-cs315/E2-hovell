@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level/level.gd" id="1_eo0e1"]
 [ext_resource type="PackedScene" uid="uid://cddo3dulwurht" path="res://floor/floor.tscn" id="2_eogk2"]
 [ext_resource type="Script" path="res://level/main_camera.gd" id="4_q8g7h"]
-[ext_resource type="PackedScene" uid="uid://i525unvf7751" path="res://level/hud.tscn" id="5_txbpq"]
+[ext_resource type="PackedScene" uid="uid://i525unvf7751" path="res://hud/hud.tscn" id="5_txbpq"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_eo0e1")

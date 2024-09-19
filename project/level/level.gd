@@ -95,6 +95,7 @@ func _on_cone_spawn_timer_timeout() -> void:
 func _on_start_timer_timeout() -> void:
 	_spawn_cone(_camera_object.position.y + _yspawn)
 	_restart_cone_timer()
+	_hud_object.hide_tutorial()
 	_camera_object.can_move = true
 
 
