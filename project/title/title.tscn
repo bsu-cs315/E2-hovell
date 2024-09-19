@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://c1agwou0ewa6w" path="res://title/title.png" id="3_afcup"]
 [ext_resource type="Script" path="res://title/button.gd" id="4_1ifw6"]
 
+[sub_resource type="Animation" id="Animation_cmvoq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(339, 588)]
+}
+
 [sub_resource type="Animation" id="Animation_k5f1l"]
 resource_name = "jump"
 loop_mode = 1
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2.5, 0.329878, 0.00850144),
 "update": 0,
 "values": [Vector2(360, 645), Vector2(360, 540), Vector2(360, 645)]
-}
-
-[sub_resource type="Animation" id="Animation_cmvoq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(339, 588)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3r7lb"]
