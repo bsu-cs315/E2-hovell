@@ -7,8 +7,8 @@ Camden Hovell's CS315 project for Exercise 2
 All graphics and sound effects are original
 
 ## Report
- - Core Loop: 
- - Clean: 
+ - Core Loop: Complete
+ - Clean: Complete
  - Legal: Complete
- - Versioning: 
+ - Versioning: Complete
  - Documentation: Complete
