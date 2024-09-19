@@ -11,13 +11,15 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 
-		if Input.is_key_pressed(KEY_UP) and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = _JUMP_VELOCITY
 
-		if Input.is_key_pressed(KEY_LEFT):
+		if Input.is_action_pressed("move_left"):
 			_direction = -1
-		elif Input.is_key_pressed(KEY_RIGHT):
+			
+		elif Input.is_action_pressed("move_right"):
 			_direction = 1
+			
 		else:
 			_direction = 0
 		
