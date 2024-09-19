@@ -1,13 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://djfin4f42kgbi"]
+[gd_scene load_steps=4 format=3 uid="uid://djfin4f42kgbi"]
 
 [ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
 [ext_resource type="Texture2D" uid="uid://wjxg1mo2ivnb" path="res://ice_cream/ice_cream_vanilla.png" id="2_idp6g"]
+
+[sub_resource type="Curve" id="Curve_n05o7"]
+_data = [Vector2(0.0151515, 1), 0.0, 0.0, 0, 0, Vector2(0.989899, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="IceCream" type="CharacterBody2D"]
 script = ExtResource("1_3hl0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+z_as_relative = false
 texture = ExtResource("2_idp6g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -52, 44, 54, 44, 45, -5, 23, -35)
+
+[node name="JumpParticle" type="CPUParticles2D" parent="."]
+z_index = 4
+z_as_relative = false
+position = Vector2(0, 40)
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_sphere_radius = 35.0
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 1200)
+initial_velocity_min = 500.0
+initial_velocity_max = 800.0
+radial_accel_max = 500.0
+scale_amount_min = 15.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_n05o7")

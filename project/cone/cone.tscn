@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="1_86qtt"]
 
 [node name="Cone" type="StaticBody2D"]
+z_index = 3
+z_as_relative = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_86qtt")
