@@ -1,4 +1,7 @@
+class_name Level
 extends Node2D
+
+static var _wait_time : float
 
 var _cone_regular : PackedScene = preload("res://cone/cone.tscn")
 var _last_spawn_x : float = 0.0
@@ -24,6 +27,10 @@ var _yspawn := -1000
 @onready var _win_timer_object : Timer = $WinTimer
 
 func _ready() -> void:
+	if _wait_time > 5:
+		_win_timer_object.wait_time = _wait_time
+	_win_timer_object.start()
+	
 	_last_spawn_x = randf_range(_xmin, _xmax)
 	var _starting_distance_between := 300
 	var _startingy := -100
@@ -35,6 +42,11 @@ func _physics_process(_delta: float) -> void:
 	_calculate_time_remaining()
 	if _ice_cream_object.position.y > _camera_object.position.y + 700:
 		_game_finished(false)
+		
+		
+		
+static func update_game_timer(new_time: float) -> void:
+	_wait_time = new_time
 		
 		
 func _game_finished(_is_win: bool) -> void:

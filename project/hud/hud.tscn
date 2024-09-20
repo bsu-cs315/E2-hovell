@@ -101,6 +101,7 @@ alignment = 1
 
 [node name="WinParticle" type="CPUParticles2D" parent="EndGameContainer"]
 position = Vector2(276, 95.5)
+emitting = false
 amount = 50
 lifetime = 0.5
 explosiveness = 0.9
