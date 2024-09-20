@@ -5,11 +5,13 @@ extends Control
 @onready var _end_container : VBoxContainer = $EndGameContainer
 @onready var _background : ColorRect = $Background
 @onready var _tutorial_container : VBoxContainer = $Tutorial
+@onready var _win_particle_object : CPUParticles2D = $EndGameContainer/WinParticle
 
 func _ready() -> void:
 	_end_container.hide()
 	_background.size = _tutorial_container.size
 	_background.position = _tutorial_container.position
+	_win_particle_object.emitting = false
 	
 	
 func hide_tutorial() -> void:
@@ -23,6 +25,7 @@ func update_end_hud(is_win: bool, new_position: Vector2) -> void:
 	
 	if is_win:
 		_end_label.text = "You Win!"
+		_win_particle_object.emitting = true
 	else:
 		_end_label.text = "You Lose!"
 		_win_bar.hide()

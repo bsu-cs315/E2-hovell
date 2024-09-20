@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://i525unvf7751"]
+[gd_scene load_steps=9 format=3 uid="uid://i525unvf7751"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_mkyx1"]
 [ext_resource type="Texture2D" uid="uid://l0k2p31tqbxa" path="res://hud/arrow.png" id="2_eltau"]
 [ext_resource type="Texture2D" uid="uid://bugijijl84u3c" path="res://hud/arrow_vertical.png" id="3_rg3ug"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="4_y144h"]
+
+[sub_resource type="Curve" id="Curve_yvy4d"]
+_data = [Vector2(0.0050505, 1), 0.0, 0.0, 0, 0, Vector2(0.959596, 0.021978), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pee44"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0.583897, 0.385803, 1, 1, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_87oyo"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 1, 1, 1, 1, 0.664862, 0.984384, 1)
+
+[sub_resource type="Curve" id="Curve_6fh1a"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -81,6 +98,27 @@ offset_top = 600.0
 offset_right = 606.0
 offset_bottom = 791.0
 alignment = 1
+
+[node name="WinParticle" type="CPUParticles2D" parent="EndGameContainer"]
+position = Vector2(276, 95.5)
+amount = 50
+lifetime = 0.5
+explosiveness = 0.9
+emission_shape = 2
+emission_sphere_radius = 30.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1200.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_yvy4d")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("Gradient_pee44")
+color_initial_ramp = SubResource("Gradient_87oyo")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_6fh1a")
 
 [node name="GameEndLabel" type="Label" parent="EndGameContainer"]
 visibility_layer = 2
