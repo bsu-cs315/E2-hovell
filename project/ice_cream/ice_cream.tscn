@@ -1,19 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://djfin4f42kgbi"]
+[gd_scene load_steps=8 format=3 uid="uid://djfin4f42kgbi"]
 
 [ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
-[ext_resource type="Texture2D" uid="uid://wjxg1mo2ivnb" path="res://ice_cream/ice_cream_vanilla.png" id="2_idp6g"]
+[ext_resource type="Texture2D" uid="uid://d4jy3h6kdk28h" path="res://ice_cream/ice_cream_eye_none.png" id="2_c8hgc"]
+[ext_resource type="Texture2D" uid="uid://cuyd0jv83q6am" path="res://ice_cream/ice_cream_eye_right.png" id="3_8uq8m"]
+[ext_resource type="Script" path="res://ice_cream/ice_cream_eye_follow.gd" id="3_ra5n7"]
+[ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/ice_cream_eye_left.png" id="5_tuk8t"]
 
 [sub_resource type="Curve" id="Curve_n05o7"]
 _data = [Vector2(0.0151515, 1), 0.0, 0.0, 0, 0, Vector2(0.989899, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o63d"]
+radius = 12.0
+
 [node name="IceCream" type="CharacterBody2D"]
 script = ExtResource("1_3hl0b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="IceCreamBody" type="Sprite2D" parent="."]
 z_index = 5
 z_as_relative = false
-texture = ExtResource("2_idp6g")
+texture = ExtResource("2_c8hgc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -52, 44, 54, 44, 45, -5, 23, -35)
@@ -40,3 +46,29 @@ radial_accel_max = 500.0
 scale_amount_min = 15.0
 scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_n05o7")
+
+[node name="IceCreamEyeRight" type="CharacterBody2D" parent="."]
+z_index = 6
+motion_mode = 1
+script = ExtResource("3_ra5n7")
+
+[node name="Sprite2D" type="Sprite2D" parent="IceCreamEyeRight"]
+texture = ExtResource("3_8uq8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeRight"]
+position = Vector2(15, -12)
+shape = SubResource("CircleShape2D_7o63d")
+disabled = true
+
+[node name="IceCreamEyeLeft" type="CharacterBody2D" parent="."]
+z_index = 6
+motion_mode = 1
+script = ExtResource("3_ra5n7")
+
+[node name="Sprite2D" type="Sprite2D" parent="IceCreamEyeLeft"]
+texture = ExtResource("5_tuk8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeLeft"]
+position = Vector2(15, -12)
+shape = SubResource("CircleShape2D_7o63d")
+disabled = true
