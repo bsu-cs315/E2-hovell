@@ -20,14 +20,16 @@ script = ExtResource("1_3hl0b")
 z_index = 5
 z_as_relative = false
 texture = ExtResource("2_c8hgc")
+offset = Vector2(0, -50)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -50)
 polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -52, 44, 54, 44, 45, -5, 23, -35)
 
 [node name="JumpParticle" type="CPUParticles2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(0, 40)
+position = Vector2(0, -10)
 emitting = false
 amount = 10
 lifetime = 0.3
@@ -52,8 +54,9 @@ z_index = 6
 motion_mode = 1
 script = ExtResource("3_ra5n7")
 
-[node name="Sprite2D" type="Sprite2D" parent="IceCreamEyeRight"]
+[node name="EyeRight" type="Sprite2D" parent="IceCreamEyeRight"]
 texture = ExtResource("3_8uq8m")
+offset = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeRight"]
 position = Vector2(15, -12)
@@ -65,8 +68,9 @@ z_index = 6
 motion_mode = 1
 script = ExtResource("3_ra5n7")
 
-[node name="Sprite2D" type="Sprite2D" parent="IceCreamEyeLeft"]
+[node name="EyeLeft" type="Sprite2D" parent="IceCreamEyeLeft"]
 texture = ExtResource("5_tuk8t")
+offset = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeLeft"]
 position = Vector2(15, -12)
