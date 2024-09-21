@@ -11,10 +11,7 @@ var _max_y := 5
 
 func _physics_process(_delta: float) -> void:
 	if _ice_cream_body.can_move:
-		if position.y > _max_y:
-			position.y = _max_y
-		if position.y < _min_y:
-			position.y = _min_y
+		position.y = clamp(position.y, _min_y, _max_y)
 
 		if Input.is_action_pressed("jump") and not _ice_cream_body.is_on_floor():
 			velocity.y = move_toward(velocity.y, _min_y, SPEED)

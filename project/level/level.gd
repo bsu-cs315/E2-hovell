@@ -44,7 +44,6 @@ func _physics_process(_delta: float) -> void:
 		_game_finished(false)
 		
 		
-		
 static func update_game_timer(new_time: float) -> void:
 	_wait_time = new_time
 		
@@ -71,6 +70,7 @@ func _spawn_cone(_ydistance) -> void:
 			_xmin,
 			_last_spawn_x - _boundary_max
 			)
+		print("R | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_xmin) + " | Xmax " + str(_last_spawn_x - _boundary_min) + " | BoundaryMax: " + str(_last_spawn_x - _boundary_max))
 	elif _last_spawn_x < 150:
 		_spawn_side = 1
 		_spawn_side_options[1] = min (
@@ -78,6 +78,7 @@ func _spawn_cone(_ydistance) -> void:
 			_xmax,
 			_last_spawn_x + _boundary_max
 			)
+		print("L | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_last_spawn_x + _boundary_min) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
 	else:
 		_spawn_side = randi_range(0,1)
 		_spawn_side_options[0] = max (
@@ -85,12 +86,18 @@ func _spawn_cone(_ydistance) -> void:
 			_xmin,
 			_last_spawn_x - _boundary_max
 			)
+		print("Between L | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_xmin) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
 			
 		_spawn_side_options[1] = min (
 			randf_range(_last_spawn_x + _boundary_min, _xmax),
 			_xmax,
 			_last_spawn_x + _boundary_max
 			)
+			
+		print("Between R | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_last_spawn_x + _boundary_min) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
+	
+			
+		
 	_spawn_pos = Vector2(_spawn_side_options[_spawn_side], _ydistance)
 	_last_spawn_x = _spawn_pos.x
 	
