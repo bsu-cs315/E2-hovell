@@ -57,8 +57,8 @@ func _game_finished(_is_win: bool) -> void:
 	
 		
 func _calculate_time_remaining() -> void:
-	var _time_left_percent : float = 100 - ((_win_timer_object.time_left / _win_timer_object.wait_time) * 100)
-	var _new_position := Vector2(_camera_object.position.x - 350, _camera_object.position.y - 630)
+	var _time_left_percent : float = 500 - ((_win_timer_object.time_left / _win_timer_object.wait_time) * 500)
+	var _new_position := Vector2(_camera_object.position.x - 330, _camera_object.position.y + 250)
 	_hud_object.update_win_bar(_time_left_percent, _new_position)
 
 

@@ -33,8 +33,8 @@ func update_end_hud(is_win: bool, new_position: Vector2) -> void:
 	_end_container.show()
 	
 	
-func update_win_bar(new_xsize: float, new_position: Vector2) -> void:
-	_win_bar.size.x = new_xsize
+func update_win_bar(new_size: float, new_position: Vector2) -> void:
+	_win_bar.size.y = new_size
 	_win_bar.position = new_position
 
 

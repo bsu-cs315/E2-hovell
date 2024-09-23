@@ -149,18 +149,17 @@ text = "Exit"
 z_index = 20
 z_as_relative = false
 layout_mode = 0
-offset_left = 17.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 56.0
+offset_right = 20.0
+offset_bottom = 500.0
+rotation = 3.14159
 color = Color(0, 0.648447, 1.92523e-07, 1)
 
 [node name="GameWinBarBG" type="ColorRect" parent="GameWinBar"]
 z_index = 19
 z_as_relative = false
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 40.0
+offset_right = 20.0
+offset_bottom = 500.0
 
 [connection signal="pressed" from="EndGameContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="EndGameContainer/ExitButton" to="." method="_on_exit_button_pressed"]
