@@ -10,9 +10,10 @@ var _spawn_pos : Vector2 = Vector2.ZERO
 var _spawn_side : int
 var _spawn_side_options : Array = [0.0, 0.0]
 
+var _MIN_SPAWN_TIMER_START := 1.5
+var _MAX_SPAWN_TIMER_START := 2.0
 var _min_spawn_timer := 1.5
 var _max_spawn_timer := 2.0
-var _next_cone_secs : float
 
 var _xmax := 650
 var _xmin := 50
@@ -39,9 +40,22 @@ func _ready() -> void:
 	
 	
 func _physics_process(_delta: float) -> void:
-	_calculate_time_remaining()
+	var _win_bar_size_x := 500.0
+	var _time_left_percent : float = _win_timer_object.time_left / _win_timer_object.wait_time
+	
 	if _ice_cream_object.position.y > _camera_object.position.y + 700:
 		_game_finished(false)
+	else:
+		var _new_hud_size : float = _win_bar_size_x - (_time_left_percent * _win_bar_size_x)
+		var _new_hud_position : = Vector2(_camera_object.position.x - 330, _camera_object.position.y + (_win_bar_size_x / 2))
+		_hud_object.update_win_bar(_new_hud_size, _new_hud_position)
+		
+		var _cam_speed_max_change := 75
+		var _spawn_speed_max_change := 0.8
+		
+		_camera_object.speed = (_cam_speed_max_change * (1 - _time_left_percent )) + _camera_object.SPEED_START
+		_min_spawn_timer = _MIN_SPAWN_TIMER_START - (_spawn_speed_max_change * (1 - _time_left_percent))
+		_max_spawn_timer = _MAX_SPAWN_TIMER_START - (_spawn_speed_max_change * (1 - _time_left_percent))
 		
 		
 static func update_game_timer(new_time: float) -> void:
@@ -54,12 +68,6 @@ func _game_finished(_is_win: bool) -> void:
 	_ice_cream_object.can_move = false
 	_win_timer_object.stop()
 	_hud_object.update_end_hud(_is_win, _camera_object.position)
-	
-		
-func _calculate_time_remaining() -> void:
-	var _time_left_percent : float = 500 - ((_win_timer_object.time_left / _win_timer_object.wait_time) * 500)
-	var _new_position := Vector2(_camera_object.position.x - 330, _camera_object.position.y + 250)
-	_hud_object.update_win_bar(_time_left_percent, _new_position)
 
 
 func _spawn_cone(_ydistance) -> void:
@@ -70,7 +78,7 @@ func _spawn_cone(_ydistance) -> void:
 			_xmin,
 			_last_spawn_x - _boundary_max
 			)
-		print("R | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_xmin) + " | Xmax " + str(_last_spawn_x - _boundary_min) + " | BoundaryMax: " + str(_last_spawn_x - _boundary_max))
+		
 	elif _last_spawn_x < 150:
 		_spawn_side = 1
 		_spawn_side_options[1] = min (
@@ -78,7 +86,7 @@ func _spawn_cone(_ydistance) -> void:
 			_xmax,
 			_last_spawn_x + _boundary_max
 			)
-		print("L | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_last_spawn_x + _boundary_min) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
+		
 	else:
 		_spawn_side = randi_range(0,1)
 		_spawn_side_options[0] = max (
@@ -86,7 +94,7 @@ func _spawn_cone(_ydistance) -> void:
 			_xmin,
 			_last_spawn_x - _boundary_max
 			)
-		print("Between L | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_xmin) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
+		
 			
 		_spawn_side_options[1] = min (
 			randf_range(_last_spawn_x + _boundary_min, _xmax),
@@ -94,9 +102,8 @@ func _spawn_cone(_ydistance) -> void:
 			_last_spawn_x + _boundary_max
 			)
 			
-		print("Between R | LastSpawn: " + str(_last_spawn_x) + " | Xmin: " + str(_last_spawn_x + _boundary_min) + " | Xmax " + str(_xmax) + " | BoundaryMax: " + str(_last_spawn_x + _boundary_max))
-	
-			
+		
+		
 		
 	_spawn_pos = Vector2(_spawn_side_options[_spawn_side], _ydistance)
 	_last_spawn_x = _spawn_pos.x
@@ -123,6 +130,5 @@ func _on_win_timer_timeout() -> void:
 	
 	
 func _restart_cone_timer() -> void:
-	_next_cone_secs = randf_range(_min_spawn_timer, _max_spawn_timer)
-	_cone_timer_object.wait_time = _next_cone_secs
+	_cone_timer_object.wait_time = randf_range(_min_spawn_timer, _max_spawn_timer)
 	_cone_timer_object.start() 
