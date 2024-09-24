@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6nt5ra5kfpja"]
+[gd_scene load_steps=16 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
 [ext_resource type="Texture2D" uid="uid://cjg4hxyhdv5ry" path="res://icon.png" id="2_fw608"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://co1ohbkrnclev" path="res://ice_cream/flavor_mint.png" id="7_6epv5"]
 [ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="8_ggnxm"]
 [ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="9_iyccw"]
+[ext_resource type="AudioStream" uid="uid://denwbiofekpn4" path="res://game-music-loop-19-153393.mp3" id="12_4ch07"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -137,6 +138,11 @@ CREAM
 JUMP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_4ch07")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
