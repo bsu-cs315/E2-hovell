@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://6nt5ra5kfpja"]
+[gd_scene load_steps=9 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
 [ext_resource type="Texture2D" uid="uid://wjxg1mo2ivnb" path="res://ice_cream/ice_cream_eye_closed.png" id="1_xbbxr"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="2_j4858"]
 [ext_resource type="Texture2D" uid="uid://c1agwou0ewa6w" path="res://title/title.png" id="3_afcup"]
+[ext_resource type="PackedScene" uid="uid://hly85inuki2d" path="res://background/ParallaxBackground.tscn" id="5_vxqxq"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -88,6 +89,8 @@ theme_override_font_sizes/font_size = 38
 placeholder_text = "Enter Time (Sec)"
 alignment = 1
 max_length = 3
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_vxqxq")]
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]

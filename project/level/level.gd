@@ -4,8 +4,8 @@ extends Node2D
 static var _wait_time : float
 
 var _cone_regular : PackedScene = preload("res://cone/cone.tscn")
-var _last_spawn_x : float = 0.0
-var _spawn_pos : Vector2 = Vector2.ZERO
+var _last_spawn_x := 0.0
+var _spawn_pos := Vector2.ZERO
 
 var _spawn_side : int
 var _spawn_side_options : Array = [0.0, 0.0]
