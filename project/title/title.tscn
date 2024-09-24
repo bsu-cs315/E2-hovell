@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://6nt5ra5kfpja"]
+[gd_scene load_steps=15 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
 [ext_resource type="Texture2D" uid="uid://cjg4hxyhdv5ry" path="res://icon.png" id="2_fw608"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="2_j4858"]
 [ext_resource type="Theme" uid="uid://j5mqsipse7id" path="res://button_theme.tres" id="5_ifrp4"]
 [ext_resource type="PackedScene" uid="uid://hly85inuki2d" path="res://background/ParallaxBackground.tscn" id="5_vxqxq"]
+[ext_resource type="Texture2D" uid="uid://c5ncbocc25cf2" path="res://ice_cream/flavor_blueberry.png" id="5_wojot"]
 [ext_resource type="Theme" uid="uid://cp1v4hh5ky4xs" path="res://text_theme.tres" id="6_53sys"]
+[ext_resource type="Texture2D" uid="uid://miitm3e62f1j" path="res://ice_cream/flavor_chocolate.png" id="6_bs4wf"]
+[ext_resource type="Texture2D" uid="uid://co1ohbkrnclev" path="res://ice_cream/flavor_mint.png" id="7_6epv5"]
+[ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="8_ggnxm"]
+[ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="9_iyccw"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -68,12 +73,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 200.0
-offset_top = 924.0
-offset_right = 516.0
-offset_bottom = 1066.0
+offset_left = 117.0
+offset_top = 922.465
+offset_right = 604.0
+offset_bottom = 1129.47
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -90,6 +97,31 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Enter Time (Sec)"
 alignment = 1
 max_length = 3
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+allow_reselect = true
+allow_rmb_select = true
+allow_search = false
+max_text_lines = 5
+auto_height = true
+text_overrun_behavior = 0
+item_count = 5
+max_columns = 5
+same_column_width = true
+fixed_column_width = 90
+icon_mode = 0
+icon_scale = 0.5
+item_0/text = "Blueberry"
+item_0/icon = ExtResource("5_wojot")
+item_1/text = "Chocolate"
+item_1/icon = ExtResource("6_bs4wf")
+item_2/text = "Mint"
+item_2/icon = ExtResource("7_6epv5")
+item_3/text = "Strawberry"
+item_3/icon = ExtResource("8_ggnxm")
+item_4/text = "Vanilla"
+item_4/icon = ExtResource("9_iyccw")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_vxqxq")]
 
@@ -108,3 +140,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_selected" from="VBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 const _SPEED := 300
 const _JUMP_VELOCITY := -775.0
+
+static var _flavor_index : int = 0
+
 var can_move := true
 var _direction : int
 var _was_airborne := false
@@ -11,10 +14,17 @@ var _min_scale := 0.7
 
 @onready var _jump_particle_object : CPUParticles2D = $JumpParticle
 @onready var _body_part_sprites : Sprite2D = $IceCreamOutline
-
+@onready var _flavor_object : Sprite2D = $IceCreamOutline/Flavor
+@onready var _flavor_sprites : Array = [
+	$AllSprites/Flavors/Blueberry,
+	$AllSprites/Flavors/Chocolate,
+	$AllSprites/Flavors/Mint,
+	$AllSprites/Flavors/Strawberry,
+	$AllSprites/Flavors/Vanilla]
 
 func _physics_process(delta: float) -> void:
 	if can_move:
+		_flavor_object.set_texture(_flavor_sprites[_flavor_index].texture)
 		
 		if is_on_floor():
 			if _was_airborne:
@@ -48,3 +58,6 @@ func _physics_process(delta: float) -> void:
 		_body_part_sprites.scale.x = move_toward(_body_part_sprites.scale.x, 1, delta)
 		_body_part_sprites.scale.y = move_toward(_body_part_sprites.scale.y, 1, delta)
 	
+
+static func update_flavor(new_flavor : int) -> void:
+	_flavor_index = new_flavor

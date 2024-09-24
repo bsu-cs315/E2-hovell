@@ -12,7 +12,7 @@ script = ExtResource("1_eo0e1")
 
 [node name="IceCream" parent="." instance=ExtResource("1_cmtxw")]
 z_index = 5
-position = Vector2(358, 1218)
+position = Vector2(358, 1272)
 
 [node name="Floor" parent="." instance=ExtResource("2_eogk2")]
 position = Vector2(2, 1272)
