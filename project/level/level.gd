@@ -43,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	var _win_bar_size_x := 500.0
 	var _time_left_percent : float = _win_timer_object.time_left / _win_timer_object.wait_time
 	
-	if _ice_cream_object.position.y > _camera_object.position.y + 700:
+	if _ice_cream_object.position.y > _camera_object.position.y + 750:
 		_game_finished(false)
 	else:
 		var _new_hud_size : float = _win_bar_size_x - (_time_left_percent * _win_bar_size_x)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://i525unvf7751"]
+[gd_scene load_steps=11 format=3 uid="uid://i525unvf7751"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_mkyx1"]
 [ext_resource type="Texture2D" uid="uid://l0k2p31tqbxa" path="res://hud/arrow.png" id="2_eltau"]
+[ext_resource type="Theme" uid="uid://cp1v4hh5ky4xs" path="res://text_theme.tres" id="3_0q0s8"]
 [ext_resource type="Texture2D" uid="uid://bugijijl84u3c" path="res://hud/arrow_vertical.png" id="3_rg3ug"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="4_y144h"]
+[ext_resource type="Theme" uid="uid://j5mqsipse7id" path="res://button_theme.tres" id="6_ahb3w"]
 
 [sub_resource type="Curve" id="Curve_yvy4d"]
 _data = [Vector2(0.0050505, 1), 0.0, 0.0, 0, 0, Vector2(0.959596, 0.021978), 0.0, 0.0, 0, 0]
@@ -37,7 +39,7 @@ z_as_relative = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.898039, 0.878431, 0.356863, 1)
+color = Color(0.29219, 0.29219, 0.29219, 1)
 
 [node name="Tutorial" type="VBoxContainer" parent="."]
 z_index = 20
@@ -66,12 +68,18 @@ texture = ExtResource("2_eltau")
 
 [node name="MoveLabel" type="Label" parent="Tutorial/MoveKeys"]
 layout_mode = 2
+theme = ExtResource("3_0q0s8")
 theme_override_font_sizes/font_size = 50
 text = "MOVEMENT"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+uppercase = true
 
 [node name="JumpKey" type="HBoxContainer" parent="Tutorial"]
 layout_mode = 2
 theme_override_constants/separation = 50
+alignment = 1
 
 [node name="UpArrow" type="TextureRect" parent="Tutorial/JumpKey"]
 layout_mode = 2
@@ -84,9 +92,9 @@ flip_h = true
 
 [node name="JumpLabel" type="Label" parent="Tutorial/JumpKey"]
 layout_mode = 2
+theme = ExtResource("3_0q0s8")
 theme_override_font_sizes/font_size = 50
 text = "JUMPING"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EndGameContainer" type="VBoxContainer" parent="."]
@@ -126,24 +134,26 @@ visibility_layer = 2
 z_index = 10
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
-text = "You Lost!"
+theme = ExtResource("3_0q0s8")
+theme_override_font_sizes/font_size = 100
+text = "You Win"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="RestartButton" type="Button" parent="EndGameContainer"]
 z_index = 20
 z_as_relative = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Restart"
+theme = ExtResource("6_ahb3w")
+text = "RESTART"
 
 [node name="ExitButton" type="Button" parent="EndGameContainer"]
 z_index = 20
 z_as_relative = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Exit"
+theme = ExtResource("6_ahb3w")
+text = "EXIT"
 
 [node name="GameWinBar" type="ColorRect" parent="."]
 z_index = 20

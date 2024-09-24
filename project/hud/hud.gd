@@ -24,10 +24,10 @@ func update_end_hud(is_win: bool, new_position: Vector2) -> void:
 	_end_container.position.y = new_position.y - (_end_container.size.y / 2)
 	
 	if is_win:
-		_end_label.text = "You Win!"
+		_end_label.text = "You Win"
 		_win_particle_object.emitting = true
 	else:
-		_end_label.text = "You Lose!"
+		_end_label.text = "You Lose"
 		_win_bar.hide()
 	
 	_end_container.show()
