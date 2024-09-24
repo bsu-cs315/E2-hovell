@@ -17,7 +17,7 @@ boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://ice_cream/ice_cream_eye_closed.png"
+config/icon="res://icon.png"
 
 [display]
 

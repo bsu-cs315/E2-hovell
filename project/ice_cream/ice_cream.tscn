@@ -1,30 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://djfin4f42kgbi"]
+[gd_scene load_steps=11 format=3 uid="uid://djfin4f42kgbi"]
 
 [ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
-[ext_resource type="Texture2D" uid="uid://d4jy3h6kdk28h" path="res://ice_cream/ice_cream_eye_none.png" id="2_c8hgc"]
-[ext_resource type="Texture2D" uid="uid://cuyd0jv83q6am" path="res://ice_cream/ice_cream_eye_right.png" id="3_8uq8m"]
-[ext_resource type="Script" path="res://ice_cream/ice_cream_eye_follow.gd" id="3_ra5n7"]
-[ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/ice_cream_eye_left.png" id="5_tuk8t"]
+[ext_resource type="Texture2D" uid="uid://bda3fqhg4rfty" path="res://ice_cream/outline.png" id="2_krtlo"]
+[ext_resource type="Texture2D" uid="uid://cuyd0jv83q6am" path="res://ice_cream/eye_right.png" id="3_8uq8m"]
+[ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="3_nvbhp"]
+[ext_resource type="Script" path="res://ice_cream/body_follow.gd" id="3_ra5n7"]
+[ext_resource type="Texture2D" uid="uid://bip2udgo8erfp" path="res://ice_cream/face_open.png" id="4_i33ce"]
+[ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/eye_left.png" id="5_tuk8t"]
+[ext_resource type="Texture2D" uid="uid://barvj67k83tk1" path="res://ice_cream/face_smile.png" id="7_accg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o63d"]
+radius = 12.0
 
 [sub_resource type="Curve" id="Curve_n05o7"]
 _data = [Vector2(0.0151515, 1), 0.0, 0.0, 0, 0, Vector2(0.989899, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7o63d"]
-radius = 12.0
-
 [node name="IceCream" type="CharacterBody2D"]
 script = ExtResource("1_3hl0b")
 
-[node name="IceCreamBody" type="Sprite2D" parent="."]
+[node name="IceCreamOutline" type="Sprite2D" parent="."]
 z_index = 5
 z_as_relative = false
-texture = ExtResource("2_c8hgc")
+texture = ExtResource("2_krtlo")
 offset = Vector2(0, -50)
+
+[node name="Flavor" type="Sprite2D" parent="IceCreamOutline"]
+z_index = 4
+z_as_relative = false
+texture = ExtResource("3_nvbhp")
+offset = Vector2(0, -50)
+
+[node name="EyeRight" type="CharacterBody2D" parent="IceCreamOutline"]
+z_index = 6
+motion_mode = 1
+script = ExtResource("3_ra5n7")
+
+[node name="EyeRight" type="Sprite2D" parent="IceCreamOutline/EyeRight"]
+texture = ExtResource("3_8uq8m")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamOutline/EyeRight"]
+position = Vector2(15, -12)
+shape = SubResource("CircleShape2D_7o63d")
+disabled = true
+
+[node name="EyeLeft" type="CharacterBody2D" parent="IceCreamOutline"]
+z_index = 6
+motion_mode = 1
+script = ExtResource("3_ra5n7")
+
+[node name="EyeLeft" type="Sprite2D" parent="IceCreamOutline/EyeLeft"]
+texture = ExtResource("5_tuk8t")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamOutline/EyeLeft"]
+position = Vector2(15, -12)
+shape = SubResource("CircleShape2D_7o63d")
+disabled = true
+
+[node name="Face" type="CharacterBody2D" parent="IceCreamOutline"]
+z_index = 6
+motion_mode = 1
+script = ExtResource("3_ra5n7")
+
+[node name="Face" type="Sprite2D" parent="IceCreamOutline/Face"]
+texture = ExtResource("7_accg2")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamOutline/Face"]
+position = Vector2(15, -12)
+shape = SubResource("CircleShape2D_7o63d")
+disabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -50)
-polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -52, 44, 54, 44, 45, -5, 23, -35)
+polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -44, 45, 45, 45, 42, 5, 29, -34)
 
 [node name="JumpParticle" type="CPUParticles2D" parent="."]
 z_index = 4
@@ -49,30 +100,14 @@ scale_amount_min = 15.0
 scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_n05o7")
 
-[node name="IceCreamEyeRight" type="CharacterBody2D" parent="."]
-z_index = 6
-motion_mode = 1
-script = ExtResource("3_ra5n7")
+[node name="AllSprites" type="Node" parent="."]
 
-[node name="EyeRight" type="Sprite2D" parent="IceCreamEyeRight"]
-texture = ExtResource("3_8uq8m")
-offset = Vector2(0, -50)
+[node name="Faces" type="Node" parent="AllSprites"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeRight"]
-position = Vector2(15, -12)
-shape = SubResource("CircleShape2D_7o63d")
-disabled = true
+[node name="Smile" type="Sprite2D" parent="AllSprites/Faces"]
+visible = false
+texture = ExtResource("7_accg2")
 
-[node name="IceCreamEyeLeft" type="CharacterBody2D" parent="."]
-z_index = 6
-motion_mode = 1
-script = ExtResource("3_ra5n7")
-
-[node name="EyeLeft" type="Sprite2D" parent="IceCreamEyeLeft"]
-texture = ExtResource("5_tuk8t")
-offset = Vector2(0, -50)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamEyeLeft"]
-position = Vector2(15, -12)
-shape = SubResource("CircleShape2D_7o63d")
-disabled = true
+[node name="Open" type="Sprite2D" parent="AllSprites/Faces"]
+visible = false
+texture = ExtResource("4_i33ce")

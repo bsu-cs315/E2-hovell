@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4jy3h6kdk28h"
-path="res://.godot/imported/ice_cream_eye_none.png-dcda7d2b12d02706ad69fb861e6293bb.ctex"
+uid="uid://co1ohbkrnclev"
+path="res://.godot/imported/flavor_mint.png-b18f543d5b40d2183f94a29cb9aa37f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ice_cream/ice_cream_eye_none.png"
-dest_files=["res://.godot/imported/ice_cream_eye_none.png-dcda7d2b12d02706ad69fb861e6293bb.ctex"]
+source_file="res://ice_cream/flavor_mint.png"
+dest_files=["res://.godot/imported/flavor_mint.png-b18f543d5b40d2183f94a29cb9aa37f8.ctex"]
 
 [params]
 

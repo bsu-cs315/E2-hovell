@@ -10,7 +10,7 @@ var _max_scale := 1.3
 var _min_scale := 0.7
 
 @onready var _jump_particle_object : CPUParticles2D = $JumpParticle
-@onready var _body_part_sprites : Array = [$IceCreamBody, $IceCreamEyeRight/EyeRight, $IceCreamEyeLeft/EyeLeft]
+@onready var _body_part_sprites : Sprite2D = $IceCreamOutline
 
 
 func _physics_process(delta: float) -> void:
@@ -19,9 +19,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			if _was_airborne:
 				_was_airborne = false
-				_body_part_sprites[0].scale = Vector2(_max_scale, _min_scale)
-				_body_part_sprites[1].scale = Vector2(_max_scale, _min_scale)
-				_body_part_sprites[2].scale = Vector2(_max_scale, _min_scale)
+				_body_part_sprites.scale = Vector2(_max_scale, _min_scale)
 		else:
 			velocity += get_gravity() * delta
 			_was_airborne = true
@@ -29,9 +27,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = _JUMP_VELOCITY
 			_jump_particle_object.emitting = true
-			_body_part_sprites[0].scale = Vector2(_min_scale, _max_scale)
-			_body_part_sprites[1].scale = Vector2(_min_scale, _max_scale)
-			_body_part_sprites[2].scale = Vector2(_min_scale, _max_scale)
+			_body_part_sprites.scale = Vector2(_min_scale, _max_scale)
 			
 		if Input.is_action_pressed("move_left"):
 			_direction = -1
@@ -49,10 +45,6 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 		
-		_scale_move_toward(_body_part_sprites[0], delta)
-		_scale_move_toward(_body_part_sprites[1], delta)
-		_scale_move_toward(_body_part_sprites[2], delta)
+		_body_part_sprites.scale.x = move_toward(_body_part_sprites.scale.x, 1, delta)
+		_body_part_sprites.scale.y = move_toward(_body_part_sprites.scale.y, 1, delta)
 	
-func _scale_move_toward(_sprite : Sprite2D, delta: float) -> void:
-	_sprite.scale.x = move_toward(_sprite.scale.x, 1, delta)
-	_sprite.scale.y = move_toward(_sprite.scale.y, 1, delta)

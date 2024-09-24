@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
-[ext_resource type="Texture2D" uid="uid://wjxg1mo2ivnb" path="res://ice_cream/ice_cream_eye_closed.png" id="1_xbbxr"]
+[ext_resource type="Texture2D" uid="uid://cjg4hxyhdv5ry" path="res://icon.png" id="2_fw608"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="2_j4858"]
 [ext_resource type="Theme" uid="uid://j5mqsipse7id" path="res://button_theme.tres" id="5_ifrp4"]
 [ext_resource type="PackedScene" uid="uid://hly85inuki2d" path="res://background/ParallaxBackground.tscn" id="5_vxqxq"]
@@ -49,7 +49,7 @@ script = ExtResource("1_lf7o0")
 
 [node name="IceCream" type="Sprite2D" parent="."]
 position = Vector2(339, 588)
-texture = ExtResource("1_xbbxr")
+texture = ExtResource("2_fw608")
 
 [node name="Cone" type="Sprite2D" parent="."]
 position = Vector2(360, 740)

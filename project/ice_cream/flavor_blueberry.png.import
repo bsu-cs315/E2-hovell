@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wjxg1mo2ivnb"
-path="res://.godot/imported/ice_cream_eye_closed.png-9e4238cdd6ec7c87ed4c70892074e5ce.ctex"
+uid="uid://c5ncbocc25cf2"
+path="res://.godot/imported/flavor_blueberry.png-78ed06905f5d232f569eaaf72a24fccb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ice_cream/ice_cream_eye_closed.png"
-dest_files=["res://.godot/imported/ice_cream_eye_closed.png-9e4238cdd6ec7c87ed4c70892074e5ce.ctex"]
+source_file="res://ice_cream/flavor_blueberry.png"
+dest_files=["res://.godot/imported/flavor_blueberry.png-78ed06905f5d232f569eaaf72a24fccb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuyd0jv83q6am"
-path="res://.godot/imported/ice_cream_eye_right.png-179f873d64f87dbacf63a7d8b3a02a0a.ctex"
+uid="uid://barvj67k83tk1"
+path="res://.godot/imported/face_smile.png-d5cce0e3377f393fa53f2e9c023cdea1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ice_cream/ice_cream_eye_right.png"
-dest_files=["res://.godot/imported/ice_cream_eye_right.png-179f873d64f87dbacf63a7d8b3a02a0a.ctex"]
+source_file="res://ice_cream/face_smile.png"
+dest_files=["res://.godot/imported/face_smile.png-d5cce0e3377f393fa53f2e9c023cdea1.ctex"]
 
 [params]
 
