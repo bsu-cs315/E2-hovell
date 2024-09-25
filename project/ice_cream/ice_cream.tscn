@@ -1,19 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://djfin4f42kgbi"]
+[gd_scene load_steps=12 format=3 uid="uid://djfin4f42kgbi"]
 
 [ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
 [ext_resource type="Texture2D" uid="uid://bda3fqhg4rfty" path="res://ice_cream/outline.png" id="2_krtlo"]
 [ext_resource type="Texture2D" uid="uid://cuyd0jv83q6am" path="res://ice_cream/eye_right.png" id="3_8uq8m"]
 [ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="3_nvbhp"]
 [ext_resource type="Script" path="res://ice_cream/body_follow.gd" id="3_ra5n7"]
-[ext_resource type="Texture2D" uid="uid://bip2udgo8erfp" path="res://ice_cream/face_open.png" id="4_i33ce"]
 [ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/eye_left.png" id="5_tuk8t"]
-[ext_resource type="Texture2D" uid="uid://barvj67k83tk1" path="res://ice_cream/face_smile.png" id="7_accg2"]
+[ext_resource type="Texture2D" uid="uid://barvj67k83tk1" path="res://ice_cream/mouth_smile.png" id="7_accg2"]
 [ext_resource type="AudioStream" uid="uid://oqio1o4bu61a" path="res://ice_cream/sound_jump.wav" id="8_xkmgi"]
 [ext_resource type="AudioStream" uid="uid://c2fdtc1yrn7ao" path="res://ice_cream/sound_land.wav" id="9_efbmt"]
-[ext_resource type="Texture2D" uid="uid://c5ncbocc25cf2" path="res://ice_cream/flavor_blueberry.png" id="9_fht05"]
-[ext_resource type="Texture2D" uid="uid://co1ohbkrnclev" path="res://ice_cream/flavor_mint.png" id="10_feyue"]
-[ext_resource type="Texture2D" uid="uid://miitm3e62f1j" path="res://ice_cream/flavor_chocolate.png" id="10_xfnlu"]
-[ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="11_l0a2i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7o63d"]
 radius = 12.0
@@ -23,54 +18,35 @@ _data = [Vector2(0.0151515, 1), 0.0, 0.0, 0, 0, Vector2(0.989899, 0), 0.0, 0.0, 
 point_count = 2
 
 [node name="IceCream" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_3hl0b")
 
 [node name="IceCreamOutline" type="Sprite2D" parent="."]
-z_index = 5
-z_as_relative = false
+z_index = 10
 texture = ExtResource("2_krtlo")
 offset = Vector2(0, -50)
 
 [node name="Flavor" type="Sprite2D" parent="IceCreamOutline"]
-z_index = 4
-z_as_relative = false
+z_index = -2
 texture = ExtResource("3_nvbhp")
 offset = Vector2(0, -50)
 
-[node name="EyeRight" type="CharacterBody2D" parent="IceCreamOutline"]
-z_index = 6
+[node name="Face" type="CharacterBody2D" parent="IceCreamOutline"]
 motion_mode = 1
 script = ExtResource("3_ra5n7")
 
-[node name="EyeRight" type="Sprite2D" parent="IceCreamOutline/EyeRight"]
+[node name="EyeRight" type="Sprite2D" parent="IceCreamOutline/Face"]
+z_index = -1
 texture = ExtResource("3_8uq8m")
 offset = Vector2(0, -50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamOutline/EyeRight"]
-position = Vector2(15, -12)
-shape = SubResource("CircleShape2D_7o63d")
-disabled = true
-
-[node name="EyeLeft" type="CharacterBody2D" parent="IceCreamOutline"]
-z_index = 6
-motion_mode = 1
-script = ExtResource("3_ra5n7")
-
-[node name="EyeLeft" type="Sprite2D" parent="IceCreamOutline/EyeLeft"]
+[node name="EyeLeft" type="Sprite2D" parent="IceCreamOutline/Face"]
+z_index = -1
 texture = ExtResource("5_tuk8t")
 offset = Vector2(0, -50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamOutline/EyeLeft"]
-position = Vector2(15, -12)
-shape = SubResource("CircleShape2D_7o63d")
-disabled = true
-
-[node name="Face" type="CharacterBody2D" parent="IceCreamOutline"]
-z_index = 6
-motion_mode = 1
-script = ExtResource("3_ra5n7")
-
-[node name="Face" type="Sprite2D" parent="IceCreamOutline/Face"]
+[node name="Mouth" type="Sprite2D" parent="IceCreamOutline/Face"]
+z_index = -1
 texture = ExtResource("7_accg2")
 offset = Vector2(0, -50)
 
@@ -84,7 +60,7 @@ position = Vector2(0, -50)
 polygon = PackedVector2Array(-1, -48, -28, -34, -42, -5, -44, 45, 45, 45, 42, 5, 29, -34)
 
 [node name="JumpParticle" type="CPUParticles2D" parent="."]
-z_index = 3
+z_index = 4
 z_as_relative = false
 position = Vector2(0, -10)
 emitting = false
@@ -113,37 +89,3 @@ volume_db = -5.0
 [node name="LandSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_efbmt")
 volume_db = -5.0
-
-[node name="AllSprites" type="Node" parent="."]
-
-[node name="Faces" type="Node" parent="AllSprites"]
-
-[node name="Smile" type="Sprite2D" parent="AllSprites/Faces"]
-visible = false
-texture = ExtResource("7_accg2")
-
-[node name="Open" type="Sprite2D" parent="AllSprites/Faces"]
-visible = false
-texture = ExtResource("4_i33ce")
-
-[node name="Flavors" type="Node" parent="AllSprites"]
-
-[node name="Blueberry" type="Sprite2D" parent="AllSprites/Flavors"]
-visible = false
-texture = ExtResource("9_fht05")
-
-[node name="Chocolate" type="Sprite2D" parent="AllSprites/Flavors"]
-visible = false
-texture = ExtResource("10_xfnlu")
-
-[node name="Mint" type="Sprite2D" parent="AllSprites/Flavors"]
-visible = false
-texture = ExtResource("10_feyue")
-
-[node name="Strawberry" type="Sprite2D" parent="AllSprites/Flavors"]
-visible = false
-texture = ExtResource("11_l0a2i")
-
-[node name="Vanilla" type="Sprite2D" parent="AllSprites/Flavors"]
-visible = false
-texture = ExtResource("3_nvbhp")

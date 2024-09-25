@@ -1,9 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://6nt5ra5kfpja"]
+[gd_scene load_steps=22 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
-[ext_resource type="Texture2D" uid="uid://cjg4hxyhdv5ry" path="res://icon.png" id="2_fw608"]
+[ext_resource type="Texture2D" uid="uid://bda3fqhg4rfty" path="res://ice_cream/outline.png" id="2_hxifq"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="2_j4858"]
+[ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/eye_left.png" id="3_wri25"]
+[ext_resource type="Texture2D" uid="uid://cuyd0jv83q6am" path="res://ice_cream/eye_right.png" id="4_q6nig"]
+[ext_resource type="FontFile" uid="uid://de5b26e8c88ip" path="res://CuteDino-G33gG.ttf" id="5_8fqn8"]
 [ext_resource type="Theme" uid="uid://j5mqsipse7id" path="res://button_theme.tres" id="5_ifrp4"]
+[ext_resource type="Texture2D" uid="uid://barvj67k83tk1" path="res://ice_cream/mouth_smile.png" id="5_ne2s7"]
 [ext_resource type="PackedScene" uid="uid://hly85inuki2d" path="res://background/ParallaxBackground.tscn" id="5_vxqxq"]
 [ext_resource type="Texture2D" uid="uid://c5ncbocc25cf2" path="res://ice_cream/flavor_blueberry.png" id="5_wojot"]
 [ext_resource type="Theme" uid="uid://cp1v4hh5ky4xs" path="res://text_theme.tres" id="6_53sys"]
@@ -12,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="8_ggnxm"]
 [ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="9_iyccw"]
 [ext_resource type="AudioStream" uid="uid://cjya3vb67edxa" path="res://ice_cream/sound_music_loop.ogg" id="13_h66xh"]
+[ext_resource type="AudioStream" uid="uid://dx163xeenhjv6" path="res://title/sound_play.wav" id="17_k14wj"]
+[ext_resource type="AudioStream" uid="uid://d12mog8xa54hn" path="res://title/sound_flavor.wav" id="18_k5l6q"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -27,6 +33,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(339, 588)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_k5f1l"]
 resource_name = "jump"
@@ -38,10 +56,22 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.466667, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(-2.5, 0.329878, 0.00850144),
 "update": 0,
-"values": [Vector2(360, 645), Vector2(360, 540), Vector2(360, 645)]
+"values": [Vector2(360, 662), Vector2(360, 540), Vector2(360, 662)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.196146, 1, 3.73213),
+"update": 0,
+"values": [Vector2(1.4, 0.7), Vector2(0.65, 1.3), Vector2(1.4, 0.7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3r7lb"]
@@ -55,7 +85,20 @@ script = ExtResource("1_lf7o0")
 
 [node name="IceCream" type="Sprite2D" parent="."]
 position = Vector2(339, 588)
-texture = ExtResource("2_fw608")
+texture = ExtResource("2_hxifq")
+
+[node name="Flavor" type="Sprite2D" parent="IceCream"]
+z_index = -1
+texture = ExtResource("9_iyccw")
+
+[node name="EyeLeft" type="Sprite2D" parent="IceCream"]
+texture = ExtResource("3_wri25")
+
+[node name="EyeRight" type="Sprite2D" parent="IceCream"]
+texture = ExtResource("4_q6nig")
+
+[node name="EyeRight2" type="Sprite2D" parent="IceCream"]
+texture = ExtResource("5_ne2s7")
 
 [node name="Cone" type="Sprite2D" parent="."]
 position = Vector2(360, 740)
@@ -89,21 +132,21 @@ theme = ExtResource("5_ifrp4")
 theme_override_font_sizes/font_size = 50
 text = "PLAY NOW"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="TimeInput" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0.831373, 0.737255, 0.521569, 1)
 theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("5_8fqn8")
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Enter Time (Sec)"
 alignment = 1
 max_length = 3
 
-[node name="ItemList" type="ItemList" parent="VBoxContainer"]
+[node name="FlavorInput" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_selected_color = Color(0.831373, 0.737255, 0.521569, 1)
-theme_override_colors/font_hovered_color = Color(0.831373, 0.737255, 0.521569, 1)
 theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("5_8fqn8")
 allow_reselect = true
 allow_rmb_select = true
 allow_search = false
@@ -147,6 +190,12 @@ stream = ExtResource("13_h66xh")
 autoplay = true
 parameters/looping = true
 
+[node name="PlaySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_k14wj")
+
+[node name="FlavorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_k5l6q")
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="item_selected" from="VBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="text_changed" from="VBoxContainer/TimeInput" to="." method="_on_line_edit_text_changed"]
+[connection signal="item_selected" from="VBoxContainer/FlavorInput" to="." method="_on_item_list_item_selected"]

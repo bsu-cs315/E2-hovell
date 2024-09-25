@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://j5mqsipse7id"]
 
-[ext_resource type="FontFile" uid="uid://c7oixa3jxkuhp" path="res://MeltedPersonalUseBold-2OG4w.ttf" id="1_sm4kd"]
+[ext_resource type="FontFile" uid="uid://de5b26e8c88ip" path="res://CuteDino-G33gG.ttf" id="1_nwxjg"]
 
 [resource]
 Button/colors/font_focus_color = Color(0.572549, 0.486275, 0.286275, 1)
@@ -9,4 +9,4 @@ Button/colors/font_hover_pressed_color = Color(0.572549, 0.486275, 0.286275, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 1
 Button/font_sizes/font_size = 40
-Button/fonts/font = ExtResource("1_sm4kd")
+Button/fonts/font = ExtResource("1_nwxjg")

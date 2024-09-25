@@ -5,29 +5,34 @@ const _SPEED := 300
 const _JUMP_VELOCITY := -775.0
 
 static var _flavor_index : int = 0
+static var _flavor_chosen := false
+static var flavor_info : Array = [
+	["blueberry", "77ACD9"],
+	["chocolate","635847"],
+	["mint","9BD977"],
+	["strawberry","E06FC7"],
+	["vanilla","FFFFFF"]]
 
 var can_move := true
 var _direction : int
 var _was_airborne := false
-var _max_scale := 1.3
-var _min_scale := 0.7
+var _max_scale := 1.4
+var _min_scale := 0.6
 
 @onready var _jump_particle_object : CPUParticles2D = $JumpParticle
 @onready var _jump_sound : AudioStreamPlayer = $JumpSound
 @onready var _land_sound : AudioStreamPlayer = $LandSound
 @onready var _body_part_sprites : Sprite2D = $IceCreamOutline
 @onready var _flavor_object : Sprite2D = $IceCreamOutline/Flavor
-@onready var _flavor_sprites : Array = [
-	$AllSprites/Flavors/Blueberry,
-	$AllSprites/Flavors/Chocolate,
-	$AllSprites/Flavors/Mint,
-	$AllSprites/Flavors/Strawberry,
-	$AllSprites/Flavors/Vanilla]
+	
+func _ready() -> void:
+	var _sprite_path : String = "res://ice_cream/flavor_"+flavor_name()+".png"
+	_flavor_object.set_texture(load(_sprite_path))
+	_jump_particle_object.color = flavor_color()
+
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		_flavor_object.set_texture(_flavor_sprites[_flavor_index].texture)
-		
 		if is_on_floor():
 			if _was_airborne:
 				_was_airborne = false
@@ -59,9 +64,16 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 		
-		_body_part_sprites.scale.x = move_toward(_body_part_sprites.scale.x, 1, delta)
-		_body_part_sprites.scale.y = move_toward(_body_part_sprites.scale.y, 1, delta)
+		_body_part_sprites.scale.x = move_toward(_body_part_sprites.scale.x, 1, 0.8 * delta)
+		_body_part_sprites.scale.y = move_toward(_body_part_sprites.scale.y, 1, 0.8 * delta)
 	
 
 static func update_flavor(new_flavor : int) -> void:
 	_flavor_index = new_flavor
+	_flavor_chosen = true
+	
+static func flavor_name() -> String:
+	return flavor_info[_flavor_index][0]
+
+static func flavor_color() -> String:
+	return flavor_info[_flavor_index][1]

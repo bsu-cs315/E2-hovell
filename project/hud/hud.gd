@@ -6,6 +6,7 @@ extends Control
 @onready var _background : ColorRect = $Background
 @onready var _tutorial_container : VBoxContainer = $Tutorial
 @onready var _win_particle_object : CPUParticles2D = $EndGameContainer/WinParticle
+@onready var _sound_restart : AudioStreamPlayer = $RestartSound
 
 func _ready() -> void:
 	_end_container.hide()
@@ -39,8 +40,10 @@ func update_win_bar(new_size: float, new_position: Vector2) -> void:
 
 
 func _on_restart_button_pressed() -> void:
+	_sound_restart.play()
 	get_tree().reload_current_scene()
 
 
 func _on_exit_button_pressed() -> void:
+	_sound_restart.play()
 	get_tree().change_scene_to_file("res://title/title.tscn")
