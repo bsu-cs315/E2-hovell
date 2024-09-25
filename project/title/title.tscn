@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://co1ohbkrnclev" path="res://ice_cream/flavor_mint.png" id="7_6epv5"]
 [ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="8_ggnxm"]
 [ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="9_iyccw"]
-[ext_resource type="AudioStream" uid="uid://denwbiofekpn4" path="res://game-music-loop-19-153393.mp3" id="12_4ch07"]
+[ext_resource type="AudioStream" uid="uid://cjya3vb67edxa" path="res://ice_cream/sound_music_loop.ogg" id="13_h66xh"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -74,10 +74,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 117.0
-offset_top = 922.465
-offset_right = 604.0
-offset_bottom = 1129.47
+offset_left = 99.5
+offset_top = 836.5
+offset_right = 620.5
+offset_bottom = 1043.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -101,6 +101,9 @@ max_length = 3
 
 [node name="ItemList" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_selected_color = Color(0.831373, 0.737255, 0.521569, 1)
+theme_override_colors/font_hovered_color = Color(0.831373, 0.737255, 0.521569, 1)
+theme_override_constants/h_separation = 4
 allow_reselect = true
 allow_rmb_select = true
 allow_search = false
@@ -110,7 +113,7 @@ text_overrun_behavior = 0
 item_count = 5
 max_columns = 5
 same_column_width = true
-fixed_column_width = 90
+fixed_column_width = 97
 icon_mode = 0
 icon_scale = 0.5
 item_0/text = "Blueberry"
@@ -140,7 +143,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_4ch07")
+stream = ExtResource("13_h66xh")
 autoplay = true
 parameters/looping = true
 

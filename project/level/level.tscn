@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://level/main_camera.gd" id="4_q8g7h"]
 [ext_resource type="PackedScene" uid="uid://i525unvf7751" path="res://hud/hud.tscn" id="5_txbpq"]
 [ext_resource type="PackedScene" uid="uid://hly85inuki2d" path="res://background/ParallaxBackground.tscn" id="6_rkagc"]
-[ext_resource type="AudioStream" uid="uid://denwbiofekpn4" path="res://game-music-loop-19-153393.mp3" id="7_23x7i"]
+[ext_resource type="AudioStream" uid="uid://cjya3vb67edxa" path="res://ice_cream/sound_music_loop.ogg" id="7_n2ihm"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_eo0e1")
@@ -39,7 +39,7 @@ one_shot = true
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_rkagc")]
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_23x7i")
+stream = ExtResource("7_n2ihm")
 autoplay = true
 parameters/looping = true
 
