@@ -22,9 +22,22 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 		Level.update_game_timer(new_text.to_float())
 
 
-func _on_item_list_item_selected(index: int) -> void:
+func _on_flavor_input_item_selected(index: int) -> void:
 	_sound_flavor.play()
 	IceCream.update_flavor(index)
 	_flavor_sprite.set_texture(_flavor_input_object.get_item_icon(index))
 	_flavor_input_object.remove_theme_color_override("font_selected_color")
 	_flavor_input_object.add_theme_color_override("font_selected_color", IceCream.flavor_color())
+
+
+func _on_resolution_input_item_selected(index: int) -> void:
+	if index == 0:
+		get_window().size = Vector2i(360, 640)
+	elif index == 1:
+		get_window().size = Vector2i(480, 854)
+	elif index == 2:
+		get_window().size = Vector2i(540, 960)
+	elif index == 3:
+		get_window().size = Vector2i(576, 1024)
+	elif index == 4:
+		get_window().size = Vector2i(720, 1280)

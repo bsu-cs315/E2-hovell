@@ -170,6 +170,25 @@ item_3/icon = ExtResource("8_ggnxm")
 item_4/text = "Vanilla"
 item_4/icon = ExtResource("9_iyccw")
 
+[node name="ResolutionInput" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 22
+theme_override_fonts/font = ExtResource("5_8fqn8")
+theme_override_font_sizes/font_size = 15
+allow_reselect = true
+allow_rmb_select = true
+allow_search = false
+auto_height = true
+text_overrun_behavior = 0
+item_count = 5
+max_columns = 5
+same_column_width = true
+item_0/text = "640 x 360"
+item_1/text = "854 x 480"
+item_2/text = "960 x 540"
+item_3/text = "1024 x 576"
+item_4/text = "1280 x 720"
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_vxqxq")]
 
 [node name="Title" type="Label" parent="."]
@@ -198,4 +217,5 @@ stream = ExtResource("18_k5l6q")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/TimeInput" to="." method="_on_line_edit_text_changed"]
-[connection signal="item_selected" from="VBoxContainer/FlavorInput" to="." method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/FlavorInput" to="." method="_on_flavor_input_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/ResolutionInput" to="." method="_on_resolution_input_item_selected"]
