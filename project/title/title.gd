@@ -1,5 +1,8 @@
 extends Node2D
 
+var screen_size = DisplayServer.screen_get_size()
+var window = get_window()
+
 @onready var _flavor_input_object : ItemList = $VBoxContainer/FlavorInput
 @onready var _flavor_sprite : Sprite2D = $IceCream/Flavor
 @onready var _sound_play : AudioStreamPlayer = $PlaySound
@@ -7,6 +10,9 @@ extends Node2D
 
 func _ready() -> void:
 	get_window().size = Vector2i(540, 960)
+	
+	get_window().position.x = screen_size.x / 2.0 - (get_window().size.x / 2.0)
+	get_window().position.y = screen_size.y / 2.0 - (get_window().size.y / 2.0)
 	
 	var _starting_flavor = randi_range(0, IceCream.flavor_info.size() - 1)
 	IceCream.update_flavor(_starting_flavor)
@@ -45,3 +51,6 @@ func _on_resolution_input_item_selected(index: int) -> void:
 		get_window().size = Vector2i(576, 1024)
 	elif index == 4:
 		get_window().size = Vector2i(720, 1280)
+	
+	get_window().position.x = screen_size.x / 2.0 - (get_window().size.x / 2.0)
+	get_window().position.y = screen_size.y / 2.0 - (get_window().size.y / 2.0)
