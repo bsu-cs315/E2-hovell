@@ -15,7 +15,7 @@ var _MAX_SPAWN_TIMER_START := 2.0
 var _min_spawn_timer := 1.5
 var _max_spawn_timer := 2.0
 
-var _xmax := 650
+var _xmax := 670
 var _xmin := 50
 var _boundary_max := 280
 var _boundary_min := 120

@@ -6,14 +6,17 @@ extends Node2D
 @onready var _sound_flavor : AudioStreamPlayer = $FlavorSound
 
 func _ready() -> void:
+	get_window().size = Vector2i(540, 960)
+	
 	var _starting_flavor = randi_range(0, IceCream.flavor_info.size() - 1)
 	IceCream.update_flavor(_starting_flavor)
 	var _sprite_path : String = "res://ice_cream/flavor_"+IceCream.flavor_name()+".png"
 	_flavor_sprite.set_texture(load(_sprite_path))
-
+	
 
 func _on_play_button_pressed() -> void:
 	_sound_play.play()
+	await _sound_play.finished
 	get_tree().change_scene_to_file("res://level/level.tscn")
 
 
@@ -31,6 +34,7 @@ func _on_flavor_input_item_selected(index: int) -> void:
 
 
 func _on_resolution_input_item_selected(index: int) -> void:
+	
 	if index == 0:
 		get_window().size = Vector2i(360, 640)
 	elif index == 1:
