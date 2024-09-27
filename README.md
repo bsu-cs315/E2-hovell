@@ -7,7 +7,7 @@ Camden Hovell's CS315 project for Exercise 2
  - All graphics are original
 
  - ### Fonts
-    - Primary Text Front from [Google Fonts](https://fonts.google.com/specimen/Rubik+Wet+Paint?preview.text=abc%20ABC%20123&query=rubik+wet&lang=en_Latn), licensed under [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/)
+    - Primary Text Font from [Google Fonts](https://fonts.google.com/specimen/Rubik+Wet+Paint?preview.text=abc%20ABC%20123&query=rubik+wet&lang=en_Latn), licensed under [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/)
     - Secondary Button Font from [Google Fonts](https://fonts.google.com/specimen/Londrina+Solid?preview.text=abc%20ABC%20123&query=londrina+sol&lang=en_Latn), licensed under [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/)
  
  - ### Sound

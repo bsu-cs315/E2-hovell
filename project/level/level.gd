@@ -28,6 +28,9 @@ var _yspawn := -1000
 @onready var _win_timer_object : Timer = $WinTimer
 
 func _ready() -> void:
+	#Input.emulate_touch_from_mouse = true
+	#Input.emulate_mouse_from_touch = false
+	
 	if _wait_time > 5:
 		_win_timer_object.wait_time = _wait_time
 	_win_timer_object.start()
@@ -43,12 +46,13 @@ func _physics_process(_delta: float) -> void:
 	var _win_bar_size_x := 500.0
 	var _time_left_percent : float = _win_timer_object.time_left / _win_timer_object.wait_time
 	
-	if _ice_cream_object.position.y > _camera_object.position.y + 750:
+	if _ice_cream_object.position.y > _camera_object.position.y + 950:
 		_game_finished(false)
 	else:
 		var _new_hud_size : float = _win_bar_size_x - (_time_left_percent * _win_bar_size_x)
 		var _new_hud_position : = Vector2(_camera_object.position.x - 330, _camera_object.position.y + (_win_bar_size_x / 2))
 		_hud_object.update_win_bar(_new_hud_size, _new_hud_position)
+		_hud_object.update_controls_position(_new_hud_position)
 		
 		var _cam_speed_max_change := 75
 		var _spawn_speed_max_change := 0.8

@@ -7,6 +7,7 @@ extends Control
 @onready var _tutorial_container : VBoxContainer = $Tutorial
 @onready var _win_particle_object : CPUParticles2D = $EndGameContainer/WinParticle
 @onready var _sound_restart : AudioStreamPlayer = $RestartSound
+@onready var _button_controls : TouchScreenButton = $JumpButton
 
 func _ready() -> void:
 	_end_container.hide()
@@ -37,6 +38,11 @@ func update_end_hud(is_win: bool, new_position: Vector2) -> void:
 func update_win_bar(new_size: float, new_position: Vector2) -> void:
 	_win_bar.size.y = new_size
 	_win_bar.position = new_position
+
+
+func update_controls_position(new_position: Vector2) -> void:
+	_button_controls.position.x = new_position.x + 15
+	_button_controls.position.y = new_position.y + 250
 
 
 func _on_restart_button_pressed() -> void:

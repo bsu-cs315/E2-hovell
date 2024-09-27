@@ -29,10 +29,10 @@ func _physics_process(_delta: float) -> void:
 			_face_object.set_texture(_face_sprites[0])
 
 
-		if Input.is_action_pressed("move_left") and position.x > _min_x:
+		if (Input.is_action_pressed("move_left") or Input.get_accelerometer().x < -1.25) and position.x > _min_x:
 			_direction = -1
 			
-		elif Input.is_action_pressed("move_right") and position.x < _max_x:
+		elif (Input.is_action_pressed("move_right") or Input.get_accelerometer().x > 1.25) and position.x < _max_x:
 			_direction = 1
 			
 		else:

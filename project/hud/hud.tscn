@@ -183,5 +183,12 @@ color = Color(0, 0, 0, 1)
 [node name="RestartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ymwry")
 
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+z_index = 20
+z_as_relative = false
+position = Vector2(303, 1021)
+texture_normal = ExtResource("3_rg3ug")
+action = "jump"
+
 [connection signal="pressed" from="EndGameContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="EndGameContainer/ExitButton" to="." method="_on_exit_button_pressed"]

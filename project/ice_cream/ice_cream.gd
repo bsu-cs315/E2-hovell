@@ -48,10 +48,10 @@ func _physics_process(delta: float) -> void:
 			_body_part_sprites.scale = Vector2(_min_scale, _max_scale)
 			_jump_sound.play()
 			
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_left") or Input.get_accelerometer().x < -1.25:
 			_direction = -1
 			
-		elif Input.is_action_pressed("move_right"):
+		elif Input.is_action_pressed("move_right") or Input.get_accelerometer().x > 1.25:
 			_direction = 1
 			
 		else:

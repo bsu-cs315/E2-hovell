@@ -97,7 +97,7 @@ texture = ExtResource("3_wri25")
 [node name="EyeRight" type="Sprite2D" parent="IceCream"]
 texture = ExtResource("4_q6nig")
 
-[node name="EyeRight2" type="Sprite2D" parent="IceCream"]
+[node name="Mouth" type="Sprite2D" parent="IceCream"]
 texture = ExtResource("5_ne2s7")
 
 [node name="Cone" type="Sprite2D" parent="."]
@@ -185,11 +185,11 @@ max_columns = 5
 same_column_width = true
 fixed_column_width = 79
 icon_mode = 0
-item_0/text = "Tiny"
-item_1/text = "Small"
-item_2/text = "Medium"
-item_3/text = "Large"
-item_4/text = "Huge"
+item_0/text = "360 x 640"
+item_1/text = "480 x 854"
+item_2/text = "540 x 960"
+item_3/text = "576 x 1024"
+item_4/text = "720 x 1080"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_vxqxq")]
 
