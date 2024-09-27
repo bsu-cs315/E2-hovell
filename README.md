@@ -17,6 +17,11 @@ Camden Hovell's CS315 project for Exercise 2
    - Play and Flavor sound from [Pixabay.com](https://pixabay.com/sound-effects/menu-select-button-182476/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
    - Restart sound from [Pixabay.com](https://pixabay.com/sound-effects/click-button-app-147358/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
 
+## Mobile Download
+ 1. Download [ice_cream_jump.apk](project/ice_cream_jump.apk) to any device with Android 8 or newer
+ 2. Accept any download warnings
+ 3. Run the app once download is complete 
+
 ## Report
  - Core Loop: Complete
  - Clean: Complete

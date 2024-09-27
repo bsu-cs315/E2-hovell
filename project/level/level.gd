@@ -52,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 		var _new_hud_size : float = _win_bar_size_x - (_time_left_percent * _win_bar_size_x)
 		var _new_hud_position : = Vector2(_camera_object.position.x - 330, _camera_object.position.y + (_win_bar_size_x / 2))
 		_hud_object.update_win_bar(_new_hud_size, _new_hud_position)
-		_hud_object.update_controls_position(_new_hud_position)
+		_hud_object.update_controls_position(_camera_object)
 		
 		var _cam_speed_max_change := 75
 		var _spawn_speed_max_change := 0.8

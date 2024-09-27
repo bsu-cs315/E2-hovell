@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://i525unvf7751"]
+[gd_scene load_steps=13 format=3 uid="uid://i525unvf7751"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_mkyx1"]
 [ext_resource type="Texture2D" uid="uid://bdx81of5nx6re" path="res://hud/arrow_horizontal.png" id="2_eltau"]
@@ -24,6 +24,9 @@ colors = PackedColorArray(0, 1, 1, 1, 1, 0.664862, 0.984384, 1)
 min_value = -1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21ex5"]
+size = Vector2(1, 1)
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -186,8 +189,8 @@ stream = ExtResource("7_ymwry")
 [node name="JumpButton" type="TouchScreenButton" parent="."]
 z_index = 20
 z_as_relative = false
-position = Vector2(303, 1021)
-texture_normal = ExtResource("3_rg3ug")
+scale = Vector2(720, 1500)
+shape = SubResource("RectangleShape2D_21ex5")
 action = "jump"
 
 [connection signal="pressed" from="EndGameContainer/RestartButton" to="." method="_on_restart_button_pressed"]

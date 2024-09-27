@@ -40,9 +40,8 @@ func update_win_bar(new_size: float, new_position: Vector2) -> void:
 	_win_bar.position = new_position
 
 
-func update_controls_position(new_position: Vector2) -> void:
-	_button_controls.position.x = new_position.x + 15
-	_button_controls.position.y = new_position.y + 250
+func update_controls_position(new_position: Camera2D) -> void:
+	_button_controls.position = new_position.position
 
 
 func _on_restart_button_pressed() -> void:

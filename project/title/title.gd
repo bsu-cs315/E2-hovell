@@ -27,6 +27,9 @@ func _process(_delta: float) -> void:
 			get_window().position.y = screen_size.y / 2.0 - (get_window().size.y / 2.0)
 		else: # Mobile
 			_resolution_input_object.hide()
+			
+	if Input.is_action_just_pressed("jump"):
+		print("jump")
 
 
 func _on_play_button_pressed() -> void:
