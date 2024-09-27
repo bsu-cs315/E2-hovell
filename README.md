@@ -7,8 +7,8 @@ Camden Hovell's CS315 project for Exercise 2
  - All graphics are original
 
  - ### Fonts
-    - Primary Text Front from [Fontspace.com](https://www.fontspace.com/melted-font-f64133), licensed under [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-    - Secondary Button Font from [Fontspace.com](https://www.fontspace.com/melted-font-f64133), licensed under [CC0](https://creativecommons.org/public-domain/cc0/)
+    - Primary Text Front from [Google Fonts](https://fonts.google.com/specimen/Rubik+Wet+Paint?preview.text=abc%20ABC%20123&query=rubik+wet&lang=en_Latn), licensed under [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/)
+    - Secondary Button Font from [Google Fonts](https://fonts.google.com/specimen/Londrina+Solid?preview.text=abc%20ABC%20123&query=londrina+sol&lang=en_Latn), licensed under [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/)
  
  - ### Sound
    - Jump sound from [Pixabay.com](https://pixabay.com/sound-effects/slimejump-6913/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)

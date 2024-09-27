@@ -69,7 +69,7 @@ texture = ExtResource("2_eltau")
 [node name="MoveLabel" type="Label" parent="Tutorial/MoveKeys"]
 layout_mode = 2
 theme = ExtResource("3_0q0s8")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "MOVEMENT"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -92,7 +92,7 @@ flip_h = true
 [node name="JumpLabel" type="Label" parent="Tutorial/JumpKey"]
 layout_mode = 2
 theme = ExtResource("3_0q0s8")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "JUMPING"
 vertical_alignment = 1
 

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://cp1v4hh5ky4xs"]
 
-[ext_resource type="FontFile" uid="uid://c7oixa3jxkuhp" path="res://MeltedPersonalUseBold-2OG4w.ttf" id="1_rpipi"]
+[ext_resource type="FontFile" uid="uid://ckjajc0eix2ry" path="res://RubikWetPaint-Regular.ttf" id="1_i5u4c"]
 
 [resource]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -9,4 +9,4 @@ Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = 4
 Label/constants/shadow_offset_y = 4
 Label/constants/shadow_outline_size = 4
-Label/fonts/font = ExtResource("1_rpipi")
+Label/fonts/font = ExtResource("1_i5u4c")

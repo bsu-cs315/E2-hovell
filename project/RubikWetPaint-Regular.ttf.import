@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://de5b26e8c88ip"
-path="res://.godot/imported/CuteDino-G33gG.ttf-d09d9183f9f0d7b85ecfb9ad69cd44ee.fontdata"
+uid="uid://ckjajc0eix2ry"
+path="res://.godot/imported/RubikWetPaint-Regular.ttf-3c92ce9d20c6e72f2976d3c11e20adfe.fontdata"
 
 [deps]
 
-source_file="res://CuteDino-G33gG.ttf"
-dest_files=["res://.godot/imported/CuteDino-G33gG.ttf-d09d9183f9f0d7b85ecfb9ad69cd44ee.fontdata"]
+source_file="res://RubikWetPaint-Regular.ttf"
+dest_files=["res://.godot/imported/RubikWetPaint-Regular.ttf-3c92ce9d20c6e72f2976d3c11e20adfe.fontdata"]
 
 [params]
 
