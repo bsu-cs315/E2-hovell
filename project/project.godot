@@ -19,6 +19,10 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon_desktop.png"
 
+[autoload]
+
+AudioController="*res://audio_controller/audio_controller.tscn"
+
 [display]
 
 window/size/viewport_width=720

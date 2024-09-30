@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djfin4f42kgbi"]
+[gd_scene load_steps=10 format=3 uid="uid://djfin4f42kgbi"]
 
 [ext_resource type="Script" path="res://ice_cream/ice_cream.gd" id="1_3hl0b"]
 [ext_resource type="Texture2D" uid="uid://bda3fqhg4rfty" path="res://ice_cream/outline.png" id="2_krtlo"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" path="res://ice_cream/body_follow.gd" id="3_ra5n7"]
 [ext_resource type="Texture2D" uid="uid://cu6y4ilds0fxf" path="res://ice_cream/eye_left.png" id="5_tuk8t"]
 [ext_resource type="Texture2D" uid="uid://barvj67k83tk1" path="res://ice_cream/mouth_smile.png" id="7_accg2"]
-[ext_resource type="AudioStream" uid="uid://oqio1o4bu61a" path="res://ice_cream/sound_jump.wav" id="8_xkmgi"]
-[ext_resource type="AudioStream" uid="uid://c2fdtc1yrn7ao" path="res://ice_cream/sound_land.wav" id="9_efbmt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7o63d"]
 radius = 12.0
@@ -81,11 +79,3 @@ radial_accel_max = 500.0
 scale_amount_min = 15.0
 scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_n05o7")
-
-[node name="JumpSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xkmgi")
-volume_db = -5.0
-
-[node name="LandSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_efbmt")
-volume_db = -5.0

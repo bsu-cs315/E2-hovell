@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6nt5ra5kfpja"]
+[gd_scene load_steps=19 format=3 uid="uid://6nt5ra5kfpja"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_lf7o0"]
 [ext_resource type="Texture2D" uid="uid://bda3fqhg4rfty" path="res://ice_cream/outline.png" id="2_hxifq"]
@@ -15,9 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://by20eo0vpepha" path="res://ice_cream/flavor_strawberry.png" id="8_ggnxm"]
 [ext_resource type="FontFile" uid="uid://b7iwekcgigkoc" path="res://LondrinaSolid-Black.ttf" id="9_018ft"]
 [ext_resource type="Texture2D" uid="uid://bb0rnasykrule" path="res://ice_cream/flavor_vanilla.png" id="9_iyccw"]
-[ext_resource type="AudioStream" uid="uid://cjya3vb67edxa" path="res://ice_cream/sound_music_loop.ogg" id="13_h66xh"]
-[ext_resource type="AudioStream" uid="uid://dx163xeenhjv6" path="res://title/sound_play.wav" id="17_k14wj"]
-[ext_resource type="AudioStream" uid="uid://d12mog8xa54hn" path="res://title/sound_flavor.wav" id="18_k5l6q"]
 
 [sub_resource type="Animation" id="Animation_cmvoq"]
 length = 0.001
@@ -205,17 +202,6 @@ CREAM
 JUMP"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_h66xh")
-autoplay = true
-parameters/looping = true
-
-[node name="PlaySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_k14wj")
-
-[node name="FlavorSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_k5l6q")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/TimeInput" to="." method="_on_line_edit_text_changed"]

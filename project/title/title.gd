@@ -8,8 +8,6 @@ var window = get_window()
 @onready var _flavor_input_object : ItemList = $VBoxContainer/FlavorInput
 @onready var _resolution_input_object : ItemList = $VBoxContainer/ResolutionInput
 @onready var _flavor_sprite : Sprite2D = $IceCream/Flavor
-@onready var _sound_play : AudioStreamPlayer = $PlaySound
-@onready var _sound_flavor : AudioStreamPlayer = $FlavorSound
 
 func _ready() -> void:
 	var _starting_flavor = randi_range(0, IceCream.flavor_info.size() - 1)
@@ -33,7 +31,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	_sound_play.play()
+	AudioController.play_sound(3)
 	get_tree().change_scene_to_file("res://level/level.tscn")
 
 
@@ -43,7 +41,7 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 
 
 func _on_flavor_input_item_selected(index: int) -> void:
-	_sound_flavor.play()
+	AudioController.play_sound(0)
 	IceCream.update_flavor(index)
 	_flavor_sprite.set_texture(_flavor_input_object.get_item_icon(index))
 	_flavor_input_object.remove_theme_color_override("font_selected_color")

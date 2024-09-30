@@ -6,7 +6,6 @@ extends Control
 @onready var _background : ColorRect = $Background
 @onready var _tutorial_container : VBoxContainer = $Tutorial
 @onready var _win_particle_object : CPUParticles2D = $EndGameContainer/WinParticle
-@onready var _sound_restart : AudioStreamPlayer = $RestartSound
 @onready var _button_controls : TouchScreenButton = $JumpButton
 
 func _ready() -> void:
@@ -45,10 +44,10 @@ func update_controls_position(new_position: Camera2D) -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	_sound_restart.play()
+	AudioController.play_sound(4)
 	get_tree().reload_current_scene()
 
 
 func _on_exit_button_pressed() -> void:
-	_sound_restart.play()
+	AudioController.play_sound(3)
 	get_tree().change_scene_to_file("res://title/title.tscn")

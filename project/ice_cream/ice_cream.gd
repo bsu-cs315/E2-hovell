@@ -20,8 +20,6 @@ var _max_scale := 1.4
 var _min_scale := 0.6
 
 @onready var _jump_particle_object : CPUParticles2D = $JumpParticle
-@onready var _jump_sound : AudioStreamPlayer = $JumpSound
-@onready var _land_sound : AudioStreamPlayer = $LandSound
 @onready var _body_part_sprites : Sprite2D = $IceCreamOutline
 @onready var _flavor_object : Sprite2D = $IceCreamOutline/Flavor
 	
@@ -37,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			if _was_airborne:
 				_was_airborne = false
 				_body_part_sprites.scale = Vector2(_max_scale, _min_scale)
-				_land_sound.play()
+				AudioController.play_sound(2)
 		else:
 			velocity += get_gravity() * delta
 			_was_airborne = true
@@ -46,7 +44,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = _JUMP_VELOCITY
 			_jump_particle_object.emitting = true
 			_body_part_sprites.scale = Vector2(_min_scale, _max_scale)
-			_jump_sound.play()
+			AudioController.play_sound(1)
 			
 		if Input.is_action_pressed("move_left") or Input.get_accelerometer().x < -1.25:
 			_direction = -1
