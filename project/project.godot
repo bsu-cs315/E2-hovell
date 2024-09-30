@@ -23,6 +23,7 @@ config/icon="res://icon_desktop.png"
 
 AudioController="*res://audio_controller/audio_controller.tscn"
 FlavorManager="*res://ice_cream/flavor_manager.gd"
+DeviceManager="*res://device_manager.gd"
 
 [display]
 

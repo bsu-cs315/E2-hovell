@@ -56,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(-2.5, 0.329878, 0.00850144),
 "update": 0,
-"values": [Vector2(360, 662), Vector2(360, 540), Vector2(360, 662)]
+"values": [Vector2(360, 762), Vector2(360, 640), Vector2(360, 762)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -98,7 +98,7 @@ texture = ExtResource("4_q6nig")
 texture = ExtResource("5_ne2s7")
 
 [node name="Cone" type="Sprite2D" parent="."]
-position = Vector2(360, 740)
+position = Vector2(360, 840)
 texture = ExtResource("2_j4858")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -108,28 +108,44 @@ libraries = {
 }
 autoplay = "jump"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MenuOptions" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 99.5
-offset_top = 836.5
-offset_right = 620.5
-offset_bottom = 1043.5
+offset_left = 15.0
+offset_top = 950.0
+offset_right = 767.0
+offset_bottom = 1226.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.92, 0.92)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="PlayButton" type="Button" parent="MenuOptions"]
 layout_mode = 2
 theme = ExtResource("5_ifrp4")
 theme_override_font_sizes/font_size = 50
 text = "PLAY NOW"
 
-[node name="TimeInput" type="LineEdit" parent="VBoxContainer"]
+[node name="Time" type="HBoxContainer" parent="MenuOptions"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="TimeLabel" type="Label" parent="MenuOptions/Time"]
+layout_mode = 2
+theme = ExtResource("6_53sys")
+theme_override_font_sizes/font_size = 25
+text = "Game Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeInput" type="LineEdit" parent="MenuOptions/Time"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0.831373, 0.737255, 0.521569, 1)
@@ -139,8 +155,25 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Enter Time (Sec)"
 alignment = 1
 max_length = 3
+clear_button_enabled = true
 
-[node name="FlavorInput" type="ItemList" parent="VBoxContainer"]
+[node name="Flavor" type="HBoxContainer" parent="MenuOptions"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="FlavorLabel" type="Label" parent="MenuOptions/Flavor"]
+layout_mode = 2
+theme = ExtResource("6_53sys")
+theme_override_font_sizes/font_size = 25
+text = "Flavor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlavorInput" type="ItemList" parent="MenuOptions/Flavor"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 4
 theme_override_fonts/font = ExtResource("9_018ft")
@@ -153,7 +186,7 @@ text_overrun_behavior = 0
 item_count = 5
 max_columns = 5
 same_column_width = true
-fixed_column_width = 97
+fixed_column_width = 92
 icon_mode = 0
 icon_scale = 0.5
 item_0/text = "Blueberry"
@@ -167,7 +200,23 @@ item_3/icon = ExtResource("8_ggnxm")
 item_4/text = "Vanilla"
 item_4/icon = ExtResource("9_iyccw")
 
-[node name="ResolutionInput" type="ItemList" parent="VBoxContainer"]
+[node name="Resolution" type="HBoxContainer" parent="MenuOptions"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="ResolutionLabel" type="Label" parent="MenuOptions/Resolution"]
+layout_mode = 2
+theme = ExtResource("6_53sys")
+theme_override_font_sizes/font_size = 25
+text = "Screen Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResolutionInput" type="ItemList" parent="MenuOptions/Resolution"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 22
 theme_override_fonts/font = ExtResource("9_018ft")
@@ -180,7 +229,7 @@ text_overrun_behavior = 0
 item_count = 5
 max_columns = 5
 same_column_width = true
-fixed_column_width = 79
+fixed_column_width = 74
 icon_mode = 0
 item_0/text = "360 x 640"
 item_1/text = "480 x 854"
@@ -203,7 +252,7 @@ JUMP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="text_changed" from="VBoxContainer/TimeInput" to="." method="_on_line_edit_text_changed"]
-[connection signal="item_selected" from="VBoxContainer/FlavorInput" to="." method="_on_flavor_input_item_selected"]
-[connection signal="item_selected" from="VBoxContainer/ResolutionInput" to="." method="_on_resolution_input_item_selected"]
+[connection signal="pressed" from="MenuOptions/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="text_changed" from="MenuOptions/Time/TimeInput" to="." method="_on_time_input_text_changed"]
+[connection signal="item_selected" from="MenuOptions/Flavor/FlavorInput" to="." method="_on_flavor_input_item_selected"]
+[connection signal="item_selected" from="MenuOptions/Resolution/ResolutionInput" to="." method="_on_resolution_input_item_selected"]

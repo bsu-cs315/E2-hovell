@@ -51,9 +51,18 @@ layout_mode = 1
 offset_left = 67.0
 offset_top = 150.0
 offset_right = 653.0
-offset_bottom = 380.0
+offset_bottom = 482.0
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="Label" type="Label" parent="Tutorial"]
+layout_mode = 2
+theme = ExtResource("3_0q0s8")
+theme_override_font_sizes/font_size = 60
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="MoveKeys" type="HBoxContainer" parent="Tutorial"]
 layout_mode = 2
@@ -187,6 +196,7 @@ z_index = 20
 z_as_relative = false
 scale = Vector2(720, 1500)
 shape = SubResource("RectangleShape2D_21ex5")
+shape_visible = false
 action = "jump"
 
 [connection signal="pressed" from="EndGameContainer/RestartButton" to="." method="_on_restart_button_pressed"]

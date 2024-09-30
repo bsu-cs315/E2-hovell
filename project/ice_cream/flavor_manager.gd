@@ -1,8 +1,7 @@
 extends Node
 
 var _flavor_index : int = 0
-var _flavor_chosen := false
-var flavor_info : Array = [
+var _flavor_info : Array = [
 	["blueberry", "77ACD9"],
 	["chocolate","635847"],
 	["mint","9BD977"],
@@ -10,15 +9,14 @@ var flavor_info : Array = [
 	["vanilla","FFFFFF"]]
 	
 func _ready() -> void:
-	var _starting_flavor = randi_range(0, flavor_info.size() - 1)
+	var _starting_flavor = randi_range(0, _flavor_info.size() - 1)
 	update_flavor(_starting_flavor)
 
 func update_flavor(new_flavor : int) -> void:
 	_flavor_index = new_flavor
-	_flavor_chosen = true
 	
 func flavor_name() -> String:
-	return flavor_info[_flavor_index][0]
+	return _flavor_info[_flavor_index][0]
 
 func flavor_color() -> String:
-	return flavor_info[_flavor_index][1]
+	return _flavor_info[_flavor_index][1]
