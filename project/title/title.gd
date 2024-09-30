@@ -1,8 +1,8 @@
 extends Node2D
 
-static var check_complete = false;
+static var _received_device : bool
 
-var screen_size = DisplayServer.screen_get_size()
+var _screen_size = DisplayServer.screen_get_size()
 
 @onready var _flavor_input_object : ItemList = $MenuOptions/Flavor/FlavorInput
 @onready var _resolution_input_object : HBoxContainer = $MenuOptions/Resolution
@@ -12,7 +12,10 @@ func _ready() -> void:
 	var _sprite_path : String = "res://ice_cream/flavor_"+FlavorManager.flavor_name()+".png"
 	_flavor_sprite.set_texture(load(_sprite_path))
 	
-	await DeviceManager.finished_check
+	if not _received_device:
+		await DeviceManager.finished_process
+	
+	_received_device = true
 	if DeviceManager.is_mobile:
 		_resolution_input_object.hide()
 
@@ -47,5 +50,5 @@ func _on_resolution_input_item_selected(index: int) -> void:
 	elif index == 4:
 		get_window().size = Vector2i(720, 1280)
 	
-	get_window().position.x = screen_size.x / 2.0 - (get_window().size.x / 2.0)
-	get_window().position.y = screen_size.y / 2.0 - (get_window().size.y / 2.0)
+	get_window().position.x = _screen_size.x / 2.0 - (get_window().size.x / 2.0)
+	get_window().position.y = _screen_size.y / 2.0 - (get_window().size.y / 2.0)
