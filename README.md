@@ -14,8 +14,7 @@ Camden Hovell's CS315 project for Exercise 2
    - Jump sound from [Pixabay.com](https://pixabay.com/sound-effects/slimejump-6913/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
    - Land sound from [Pixabay.com](https://pixabay.com/sound-effects/walk-wet-86710/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
    - Music loop from [Pixabay.com](https://pixabay.com/music/video-games-game-music-loop-19-153393/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
-   - Play and Flavor sound from [Pixabay.com](https://pixabay.com/sound-effects/menu-select-button-182476/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
-   - Restart sound from [Pixabay.com](https://pixabay.com/sound-effects/click-button-app-147358/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
+   - Menu select sound from [Pixabay.com](https://pixabay.com/sound-effects/menu-select-button-182476/), licensed under [Pixabay Content License](https://pixabay.com/service/terms/)
 
 ## Mobile Download
  1. Download [ice_cream_jump.apk](project/ice_cream_jump.apk) to any device with Android 8 or newer
