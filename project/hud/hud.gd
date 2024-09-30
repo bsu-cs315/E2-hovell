@@ -10,7 +10,7 @@ extends Control
 
 func _ready() -> void:
 	_end_container.hide()
-	_background.size = _tutorial_container.size
+	_background.size = _tutorial_container.size + Vector2(10, 10)
 	_background.position = _tutorial_container.position
 	_win_particle_object.emitting = false
 	
@@ -52,10 +52,10 @@ func update_controls_position(new_position: Camera2D) -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	AudioController.play_sound(4)
+	AudioController.play_sound(0)
 	get_tree().reload_current_scene()
 
 
 func _on_exit_button_pressed() -> void:
-	AudioController.play_sound(3)
+	AudioController.play_sound(0)
 	get_tree().change_scene_to_file("res://title/title.tscn")

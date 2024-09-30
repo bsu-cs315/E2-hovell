@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cki8ynbyicm4r"]
+[gd_scene load_steps=6 format=3 uid="uid://cki8ynbyicm4r"]
 
 [ext_resource type="Script" path="res://audio_controller/audio_controller.gd" id="1_xl4wy"]
 [ext_resource type="AudioStream" uid="uid://cjya3vb67edxa" path="res://audio_controller/music_loop.ogg" id="2_ufe51"]
 [ext_resource type="AudioStream" uid="uid://d12mog8xa54hn" path="res://audio_controller/sound_flavor.wav" id="3_3w16v"]
 [ext_resource type="AudioStream" uid="uid://oqio1o4bu61a" path="res://audio_controller/sound_jump.wav" id="4_v3cmw"]
 [ext_resource type="AudioStream" uid="uid://c2fdtc1yrn7ao" path="res://audio_controller/sound_land.wav" id="5_6qsb0"]
-[ext_resource type="AudioStream" uid="uid://dx163xeenhjv6" path="res://audio_controller/sound_play.wav" id="6_7otph"]
-[ext_resource type="AudioStream" uid="uid://d1hrgbud4tm3r" path="res://audio_controller/sound_restart.wav" id="7_t57r5"]
 
 [node name="AudioController" type="Node"]
 script = ExtResource("1_xl4wy")
@@ -16,7 +14,7 @@ stream = ExtResource("2_ufe51")
 autoplay = true
 parameters/looping = true
 
-[node name="Flavor" type="AudioStreamPlayer" parent="."]
+[node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3w16v")
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
@@ -26,9 +24,3 @@ volume_db = 0.5
 [node name="Land" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6qsb0")
 volume_db = -0.5
-
-[node name="Play" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_7otph")
-
-[node name="Restart" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_t57r5")

@@ -42,7 +42,7 @@ z_as_relative = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.29219, 0.29219, 0.29219, 1)
+color = Color(0.585472, 0.716546, 0.939883, 0.498039)
 
 [node name="Tutorial" type="VBoxContainer" parent="."]
 z_index = 20

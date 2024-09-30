@@ -21,12 +21,13 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
-	AudioController.play_sound(3)
+	AudioController.play_sound(0)
 	get_tree().change_scene_to_file("res://level/level.tscn")
 
 
 func _on_time_input_text_changed(new_text: String) -> void:
 	if new_text.is_valid_float():
+		AudioController.play_sound(0)
 		Level.update_game_timer(new_text.to_float())
 
 
@@ -39,6 +40,7 @@ func _on_flavor_input_item_selected(index: int) -> void:
 
 
 func _on_resolution_input_item_selected(index: int) -> void:
+	AudioController.play_sound(0)
 	if index == 0:
 		get_window().size = Vector2i(360, 640)
 	elif index == 1:
