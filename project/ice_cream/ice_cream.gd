@@ -4,15 +4,6 @@ extends CharacterBody2D
 const _SPEED := 300
 const _JUMP_VELOCITY := -775.0
 
-static var _flavor_index : int = 0
-static var _flavor_chosen := false
-static var flavor_info : Array = [
-	["blueberry", "77ACD9"],
-	["chocolate","635847"],
-	["mint","9BD977"],
-	["strawberry","E06FC7"],
-	["vanilla","FFFFFF"]]
-
 var can_move := true
 var _direction : int
 var _was_airborne := false
@@ -24,9 +15,9 @@ var _min_scale := 0.6
 @onready var _flavor_object : Sprite2D = $IceCreamOutline/Flavor
 	
 func _ready() -> void:
-	var _sprite_path : String = "res://ice_cream/flavor_"+flavor_name()+".png"
+	var _sprite_path : String = "res://ice_cream/flavor_" + FlavorManager.flavor_name() + ".png"
 	_flavor_object.set_texture(load(_sprite_path))
-	_jump_particle_object.color = flavor_color()
+	_jump_particle_object.color = FlavorManager.flavor_color()
 
 
 func _physics_process(delta: float) -> void:
@@ -64,14 +55,3 @@ func _physics_process(delta: float) -> void:
 		
 		_body_part_sprites.scale.x = move_toward(_body_part_sprites.scale.x, 1, 0.8 * delta)
 		_body_part_sprites.scale.y = move_toward(_body_part_sprites.scale.y, 1, 0.8 * delta)
-	
-
-static func update_flavor(new_flavor : int) -> void:
-	_flavor_index = new_flavor
-	_flavor_chosen = true
-	
-static func flavor_name() -> String:
-	return flavor_info[_flavor_index][0]
-
-static func flavor_color() -> String:
-	return flavor_info[_flavor_index][1]

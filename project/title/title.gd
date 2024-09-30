@@ -10,10 +10,8 @@ var window = get_window()
 @onready var _flavor_sprite : Sprite2D = $IceCream/Flavor
 
 func _ready() -> void:
-	var _starting_flavor = randi_range(0, IceCream.flavor_info.size() - 1)
-	IceCream.update_flavor(_starting_flavor)
-	var _sprite_path : String = "res://ice_cream/flavor_"+IceCream.flavor_name()+".png"
-	_flavor_sprite.set_texture(load(_sprite_path))
+	var _starting_flavor_sprite : String = "res://ice_cream/flavor_"+FlavorManager.flavor_name()+".png"
+	_flavor_sprite.set_texture(load(_starting_flavor_sprite))
 	
 	
 func _process(_delta: float) -> void:
@@ -25,9 +23,6 @@ func _process(_delta: float) -> void:
 			get_window().position.y = screen_size.y / 2.0 - (get_window().size.y / 2.0)
 		else: # Mobile
 			_resolution_input_object.hide()
-			
-	if Input.is_action_just_pressed("jump"):
-		print("jump")
 
 
 func _on_play_button_pressed() -> void:
@@ -42,10 +37,10 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 
 func _on_flavor_input_item_selected(index: int) -> void:
 	AudioController.play_sound(0)
-	IceCream.update_flavor(index)
+	FlavorManager.update_flavor(index)
 	_flavor_sprite.set_texture(_flavor_input_object.get_item_icon(index))
 	_flavor_input_object.remove_theme_color_override("font_selected_color")
-	_flavor_input_object.add_theme_color_override("font_selected_color", IceCream.flavor_color())
+	_flavor_input_object.add_theme_color_override("font_selected_color", FlavorManager.flavor_color())
 
 
 func _on_resolution_input_item_selected(index: int) -> void:

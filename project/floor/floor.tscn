@@ -8,8 +8,8 @@ size = Vector2(735, 20)
 [node name="Floor" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(345.5, 1.5)
-scale = Vector2(7.91, 0.23)
+position = Vector2(345.5, 192.5)
+scale = Vector2(7.91, 4.05)
 texture = ExtResource("1_7tjxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
