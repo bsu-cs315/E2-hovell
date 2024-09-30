@@ -22,6 +22,9 @@ Camden Hovell's CS315 project for Exercise 2
  2. Accept any download warnings
  3. Run the app once download is complete 
 
+## Itch.io Web Playable Version
+ [https://cam-com.itch.io/ice-cream-jump](https://cam-com.itch.io/ice-cream-jump)
+
 ## Report
  - Core Loop: Complete
  - Clean: Complete
