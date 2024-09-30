@@ -12,11 +12,14 @@ func _ready() -> void:
 	var _starting_flavor = randi_range(0, _flavor_info.size() - 1)
 	update_flavor(_starting_flavor)
 
+
 func update_flavor(new_flavor : int) -> void:
 	_flavor_index = new_flavor
 	
+	
 func flavor_name() -> String:
 	return _flavor_info[_flavor_index][0]
+
 
 func flavor_color() -> String:
 	return _flavor_info[_flavor_index][1]

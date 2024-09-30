@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://i525unvf7751"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_mkyx1"]
-[ext_resource type="Texture2D" uid="uid://bdx81of5nx6re" path="res://hud/arrow_horizontal.png" id="2_eltau"]
+[ext_resource type="Texture2D" uid="uid://bdx81of5nx6re" path="res://hud/horizontal_arrow.png" id="2_eltau"]
 [ext_resource type="Theme" uid="uid://cp1v4hh5ky4xs" path="res://text_theme.tres" id="3_0q0s8"]
-[ext_resource type="Texture2D" uid="uid://bugijijl84u3c" path="res://hud/arrow_vertical.png" id="3_rg3ug"]
+[ext_resource type="Texture2D" uid="uid://bugijijl84u3c" path="res://hud/vertical_arrow.png" id="3_rg3ug"]
 [ext_resource type="Texture2D" uid="uid://pvqudvnvfftq" path="res://cone/cone.png" id="4_y144h"]
 [ext_resource type="Theme" uid="uid://j5mqsipse7id" path="res://button_theme.tres" id="6_ahb3w"]
 

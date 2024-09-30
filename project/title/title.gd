@@ -5,14 +5,14 @@ static var check_complete = false;
 var screen_size = DisplayServer.screen_get_size()
 
 @onready var _flavor_input_object : ItemList = $MenuOptions/Flavor/FlavorInput
-@onready var _resolution_input_object : ItemList = $MenuOptions/Resolution/ResolutionInput
+@onready var _resolution_input_object : HBoxContainer = $MenuOptions/Resolution
 @onready var _flavor_sprite : Sprite2D = $IceCream/Flavor
 
 func _ready() -> void:
 	var _sprite_path : String = "res://ice_cream/flavor_"+FlavorManager.flavor_name()+".png"
 	_flavor_sprite.set_texture(load(_sprite_path))
 	
-	await DeviceManager.ready
+	await DeviceManager.finished_check
 	if DeviceManager.is_mobile:
 		_resolution_input_object.hide()
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdx81of5nx6re"
-path="res://.godot/imported/arrow_horizontal.png-9a54c12cd1531c4ce06e0f009ff4cb52.ctex"
+uid="uid://brv7g3wakjqbb"
+path="res://.godot/imported/horizontal_mobile.png-65340468cb3db4df9119903163967c71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/arrow_horizontal.png"
-dest_files=["res://.godot/imported/arrow_horizontal.png-9a54c12cd1531c4ce06e0f009ff4cb52.ctex"]
+source_file="res://hud/horizontal_mobile.png"
+dest_files=["res://.godot/imported/horizontal_mobile.png-65340468cb3db4df9119903163967c71.ctex"]
 
 [params]
 

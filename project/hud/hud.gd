@@ -14,6 +14,14 @@ func _ready() -> void:
 	_background.position = _tutorial_container.position
 	_win_particle_object.emitting = false
 	
+	if DeviceManager.is_mobile:
+		$Tutorial/JumpKey/UpArrow.set_texture(load("res://hud/vertical_mobile.png"))
+		$Tutorial/MoveKeys/LeftArrow.set_texture(load("res://hud/horizontal_mobile.png"))
+		$Tutorial/MoveKeys/RightArrow.set_texture(load("res://hud/horizontal_mobile.png"))
+	else:
+		$Tutorial/JumpKey/UpArrow.set_texture(load("res://hud/vertical_arrow.png"))
+		$Tutorial/MoveKeys/LeftArrow.set_texture(load("res://hud/horizontal_arrow.png"))
+		$Tutorial/MoveKeys/RightArrow.set_texture(load("res://hud/horizontal_arrow.png"))
 	
 func hide_tutorial() -> void:
 	_tutorial_container.hide()
